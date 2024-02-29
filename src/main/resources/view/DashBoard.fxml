@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="MainRoot" prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Controller.DashBoardFormController">
+   <children>
+      <ImageView fitHeight="800.0" fitWidth="1493.0">
+         <image>
+            <Image url="@../images/stock-vector-abstract-waving-particle-technology-background-design-abstract-wave-moving-dots-flow-particles-hi-2128959116.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="root" layoutX="301.0" layoutY="79.0" prefHeight="706.0" prefWidth="1170.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;">
+         <children>
+            <Label layoutX="340.0" layoutY="181.0" text="Book" textFill="#1c598e">
+               <font>
+                  <Font name="System Bold Italic" size="96.0" />
+               </font>
+            </Label>
+            <Label layoutX="612.0" layoutY="181.0" text="Worm" textFill="#878c1c">
+               <font>
+                  <Font name="System Bold Italic" size="96.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="320.0" fitWidth="529.0" layoutX="340.0" layoutY="318.0">
+               <image>
+                  <Image url="@../images/giphy.gif" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="14.0" layoutY="79.0" prefHeight="706.0" prefWidth="258.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;">
+         <children>
+            <ImageView fitHeight="82.0" fitWidth="79.0" layoutX="74.0" layoutY="304.0">
+               <image>
+                  <Image url="@../images/icons8-books-100.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="90.0" fitWidth="94.0" layoutX="66.0" layoutY="48.0">
+               <image>
+                  <Image url="@../images/icons8-books-400.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="82.0" fitWidth="79.0" layoutX="73.0" layoutY="434.0">
+               <image>
+                  <Image url="@../images/icons8-branch-100.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="67.0" fitWidth="68.0" layoutX="79.0" layoutY="574.0">
+               <image>
+                  <Image url="@../images/icons8-logout-100.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="76.0" fitWidth="79.0" layoutX="74.0" layoutY="178.0">
+               <image>
+                  <Image url="@../images/icons8-users-250.png" />
+               </image>
+            </ImageView>
+            <JFXButton layoutX="68.0" layoutY="59.0" onAction="#btnmanageBook" prefHeight="67.0" prefWidth="87.0" text="." />
+            <JFXButton layoutX="70.0" layoutY="170.0" onAction="#btnManageUsers" prefHeight="90.0" prefWidth="94.0" text="." />
+            <JFXButton layoutX="64.0" layoutY="295.0" onAction="#btnManageTranceAction" prefHeight="90.0" prefWidth="94.0" text="." />
+            <JFXButton layoutX="57.0" layoutY="430.0" onAction="#btnManageBraches" prefHeight="90.0" prefWidth="94.0" text="." />
+            <JFXButton layoutX="57.0" layoutY="562.0" onAction="#btnLogOut" prefHeight="90.0" prefWidth="94.0" text="." />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="868.0" layoutY="19.0" prefHeight="46.0" prefWidth="247.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;">
+         <children>
+            <Label fx:id="lbltimeTop" layoutX="80.0" layoutY="5.0" prefHeight="18.0" prefWidth="68.0" text="00:00">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="1209.0" layoutY="19.0" prefHeight="46.0" prefWidth="247.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;">
+         <children>
+            <Label fx:id="lblDateTop" layoutX="40.0" layoutY="5.0" prefHeight="35.0" prefWidth="168.0" text="DD/MM/YYYY">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

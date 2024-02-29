@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootUser" prefHeight="706.0" prefWidth="1170.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Controller.UserFormController">
+   <children>
+      <Label layoutX="38.0" layoutY="40.0" prefHeight="54.0" prefWidth="344.0" text="Manage Users..">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <TableView layoutX="38.0" layoutY="119.0" prefHeight="269.0" prefWidth="1094.0">
+        <columns>
+          <TableColumn fx:id="colUserId" prefWidth="208.8000144958496" text="User_id" />
+          <TableColumn fx:id="colUserName" minWidth="5.60003662109375" prefWidth="231.19998168945312" text="Name" />
+            <TableColumn fx:id="colUserAddress" minWidth="4.800018310546875" prefWidth="224.0" text="Address" />
+            <TableColumn fx:id="colUserContact" prefWidth="195.2000732421875" text="Contact" />
+            <TableColumn fx:id="colUserGender" prefWidth="239.20001220703125" text="Gender" />
+        </columns>
+      </TableView>
+      <Label layoutX="45.0" layoutY="467.0" text="User_id">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="45.0" layoutY="536.0" text="Name">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="38.0" layoutY="612.0" text="Address">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="488.0" layoutY="571.0" text="Gender">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="486.0" layoutY="467.0" text="Contact">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtUserId" layoutX="152.0" layoutY="472.0" prefHeight="26.0" prefWidth="241.0" />
+      <JFXTextField fx:id="txtUserName" layoutX="152.0" layoutY="540.0" prefHeight="26.0" prefWidth="241.0" />
+      <JFXTextField fx:id="txtUserAddress" layoutX="152.0" layoutY="616.0" prefHeight="26.0" prefWidth="241.0" />
+      <JFXTextField fx:id="txtUserContact" layoutX="585.0" layoutY="471.0" prefHeight="26.0" prefWidth="241.0" />
+      <RadioButton fx:id="rdbtnMail" layoutX="613.0" layoutY="580.0" mnemonicParsing="false" text="Male">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="rdbtnfemale" layoutX="613.0" layoutY="612.0" mnemonicParsing="false" text="Female">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </RadioButton>
+      <JFXButton buttonType="RAISED" layoutX="960.0" layoutY="444.0" onAction="#btnAddOnAction" prefHeight="54.0" prefWidth="162.0" style="-fx-background-color: #9b59b6; -fx-background-radius: 50;" text="Add">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="960.0" layoutY="526.0" onAction="#btnUpdateOnAction" prefHeight="54.0" prefWidth="162.0" style="-fx-background-color: #f39c12; -fx-background-radius: 50;" text="Update">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="960.0" layoutY="605.0" onAction="#btnDeleteOnAction" prefHeight="54.0" prefWidth="162.0" style="-fx-background-color: #e74c3c; -fx-background-radius: 50;" text="Delete">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

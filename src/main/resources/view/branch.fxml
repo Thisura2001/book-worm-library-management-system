@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootBranch" prefHeight="706.0" prefWidth="1170.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Controller.BranchFormController">
+   <children>
+      <Label layoutX="33.0" layoutY="29.0" text="Manage Branches">
+         <font>
+            <Font name="System Bold" size="48.0" />
+         </font>
+      </Label>
+      <TableView layoutX="37.0" layoutY="132.0" prefHeight="258.0" prefWidth="1095.0">
+        <columns>
+          <TableColumn fx:id="colBranchId" minWidth="3.999969482421875" prefWidth="178.3999900817871" text="Branch_Id" />
+          <TableColumn fx:id="colBranchName" prefWidth="227.2000274658203" text="Name" />
+            <TableColumn fx:id="colBranchAddress" prefWidth="227.2000274658203" text="Address" />
+            <TableColumn fx:id="colBranchContact" prefWidth="227.2000274658203" text="Contact" />
+            <TableColumn fx:id="colBranchStatus" prefWidth="227.2000274658203" text="Status" />
+        </columns>
+      </TableView>
+      <Label layoutX="37.0" layoutY="448.0" text="Branch_ID">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="37.0" layoutY="535.0" text="Name">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="37.0" layoutY="625.0" text="Address">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="523.0" layoutY="448.0" text="Contact">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="523.0" layoutY="535.0" text="Status">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtBranchId" layoutX="166.0" layoutY="453.0" prefHeight="26.0" prefWidth="302.0" />
+      <JFXTextField fx:id="txtBranchName" layoutX="166.0" layoutY="539.0" prefHeight="26.0" prefWidth="302.0" />
+      <JFXTextField fx:id="txtBranchAddress" layoutX="166.0" layoutY="629.0" prefHeight="26.0" prefWidth="302.0" />
+      <JFXTextField fx:id="txtBranchContact" layoutX="633.0" layoutY="453.0" prefHeight="26.0" prefWidth="243.0" />
+      <RadioButton fx:id="rdbtnOpen" layoutX="633.0" layoutY="544.0" mnemonicParsing="false" text="Open" />
+      <RadioButton fx:id="rdBtnClose" layoutX="633.0" layoutY="576.0" mnemonicParsing="false" text="Close" />
+      <JFXButton buttonType="RAISED" layoutX="970.0" layoutY="436.0" onAction="#btnAddOnAction" prefHeight="60.0" prefWidth="144.0" style="-fx-background-color: #9b59b6; -fx-background-radius: 50;" text="Add">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="970.0" layoutY="523.0" onAction="#btnUpdateOnAction" prefHeight="60.0" prefWidth="144.0" style="-fx-background-color: #f39c12; -fx-background-radius: 50;" text="Update">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="970.0" layoutY="612.0" onAction="#btnDeleteOnAction" prefHeight="60.0" prefWidth="144.0" style="-fx-background-color: #e74c3c; -fx-background-radius: 50;" text="Delete">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

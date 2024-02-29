@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="700.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Controller.RegisterFormController">
+   <children>
+      <ImageView fitHeight="714.0" fitWidth="500.0">
+         <image>
+            <Image url="@../images/stock-vector-abstract-waving-particle-technology-background-design-abstract-wave-moving-dots-flow-particles-hi-2128959116.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="50.0" layoutY="57.0" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <TextField fx:id="txtUserName" layoutX="48.0" layoutY="154.0" prefHeight="50.0" prefWidth="304.0" promptText="Enter Your UserName" />
+            <JFXButton buttonType="RAISED" layoutX="51.0" layoutY="511.0" onAction="#btnRegisterOnAction" prefHeight="38.0" prefWidth="142.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 50;" text="Register">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="234.0" layoutY="511.0" onAction="#btnLoginOnAction" prefHeight="38.0" prefWidth="142.0" style="-fx-background-color: #2ed573; -fx-background-radius: 50;" text="Log">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="33.0" layoutY="37.0" text="Fill This For Register">
+               <font>
+                  <Font name="System Bold Italic" size="36.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="txtPassword" layoutX="51.0" layoutY="267.0" prefHeight="50.0" prefWidth="304.0" text="Enter Your Password" />
+            <PasswordField layoutX="48.0" layoutY="381.0" prefHeight="50.0" prefWidth="304.0" text="Enter Your Password" />
+            <Label layoutX="51.0" layoutY="126.0" text="UserName">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="51.0" layoutY="239.0" text="Password">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="51.0" layoutY="353.0" text="Re-Enter Password">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
