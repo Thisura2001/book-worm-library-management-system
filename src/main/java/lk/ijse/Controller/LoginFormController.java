@@ -38,6 +38,12 @@ public class LoginFormController {
         stage.centerOnScreen();
     }
 
-    public void btnResgisterOnAction(ActionEvent actionEvent) {
+    public void btnResgisterOnAction(ActionEvent actionEvent) throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/Register.fxml"));
+        Scene scene = new Scene(rootNode);
+        Stage stage = (Stage) this.root.getScene().getWindow();
+        stage.setTitle("book worm");
+        stage.setScene(scene);
+        stage.centerOnScreen();
     }
 }

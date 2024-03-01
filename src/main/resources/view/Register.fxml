@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="700.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Controller.RegisterFormController">
+<AnchorPane fx:id="root" prefHeight="700.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Controller.RegisterFormController">
    <children>
       <ImageView fitHeight="714.0" fitWidth="500.0">
          <image>
@@ -35,8 +34,8 @@
                   <Font name="System Bold Italic" size="36.0" />
                </font>
             </Label>
-            <PasswordField fx:id="txtPassword" layoutX="51.0" layoutY="267.0" prefHeight="50.0" prefWidth="304.0" text="Enter Your Password" />
-            <PasswordField layoutX="48.0" layoutY="381.0" prefHeight="50.0" prefWidth="304.0" text="Enter Your Password" />
+            <PasswordField fx:id="txtPassword" layoutX="51.0" layoutY="267.0" prefHeight="50.0" prefWidth="304.0" />
+            <PasswordField layoutX="48.0" layoutY="381.0" prefHeight="50.0" prefWidth="304.0" />
             <Label layoutX="51.0" layoutY="126.0" text="UserName">
                <font>
                   <Font size="18.0" />
