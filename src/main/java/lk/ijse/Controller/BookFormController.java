@@ -17,9 +17,6 @@ public class BookFormController {
     private TableColumn<?, ?> colBookAvailability;
 
     @FXML
-    private TableColumn<?, ?> colBookGenre;
-
-    @FXML
     private TableColumn<?, ?> colBookTitle;
 
     @FXML
