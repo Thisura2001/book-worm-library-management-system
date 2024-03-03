@@ -11,11 +11,8 @@ import lombok.*;
 @ToString
 
 @Entity
-public class User {
+public class Admin {
     @Id
-    private String id;
-    private String name;
-    private String address;
-    private int contact;
-    private String gender;
+    private String userName;
+    private String password;
 }

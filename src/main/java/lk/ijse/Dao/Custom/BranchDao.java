@@ -1,4 +1,6 @@
 package lk.ijse.Dao.Custom;
 
-public interface BranchDao {
+import lk.ijse.Dao.SuperDao;
+
+public interface BranchDao extends SuperDao {
 }

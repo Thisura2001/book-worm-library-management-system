@@ -1,5 +1,7 @@
 package lk.ijse.Entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.*;
 
 @AllArgsConstructor
@@ -7,7 +9,10 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
+
+@Entity
 public class Book {
+    @Id
     private String id;
     private String title;
     private String author;

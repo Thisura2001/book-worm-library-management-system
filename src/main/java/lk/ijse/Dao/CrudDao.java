@@ -1,4 +1,4 @@
 package lk.ijse.Dao;
 
-public interface CrudDao {
+public interface CrudDao <T> extends SuperDao{
 }

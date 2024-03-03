@@ -1,4 +1,6 @@
 package lk.ijse.Dao.Custom;
 
-public interface UserDao {
+import lk.ijse.Dao.SuperDao;
+
+public interface UserDao extends SuperDao {
 }

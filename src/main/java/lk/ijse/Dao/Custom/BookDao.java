@@ -1,4 +1,6 @@
 package lk.ijse.Dao.Custom;
 
-public interface BookDao {
+import lk.ijse.Dao.SuperDao;
+
+public interface BookDao extends SuperDao {
 }
