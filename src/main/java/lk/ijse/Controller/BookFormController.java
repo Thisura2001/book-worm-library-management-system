@@ -58,7 +58,24 @@ public class BookFormController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         getAll();
         setCellValueFactory();
+        setBookId();
+        tableListener();
     }
+
+    private void setBookId() {
+
+    }
+    private void tableListener() {
+        tblBook.getSelectionModel()
+                .selectedItemProperty()
+                .addListener((observableValue, BookTm, t1) -> {
+                    txtBookId.setText(t1.getId());
+                    txtBookTitle.setText(t1.getTitle());
+                    txtAuthor.setText(String.valueOf(t1.getAuthor()));
+                    txtAvailability.setText(String.valueOf(t1.getAvailability()));
+                });
+    }
+
 
     private void setCellValueFactory() {
         colbookId.setCellValueFactory(new PropertyValueFactory<>("id"));
