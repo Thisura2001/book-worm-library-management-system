@@ -31,4 +31,9 @@ public class BookBoImpl implements BookBo {
         return bookDtos;
     }
 
+    @Override
+    public String generateNewBookID() {
+        return bookDao.generateNewId();
+    }
+
 }

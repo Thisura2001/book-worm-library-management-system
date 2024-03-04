@@ -25,6 +25,11 @@ public class LoginDaoImpl implements LoginDao {
     }
 
     @Override
+    public String generateNewId() {
+        return null;
+    }
+
+    @Override
     public boolean ValidAdmin(Admin admin) {
         return false;
     }

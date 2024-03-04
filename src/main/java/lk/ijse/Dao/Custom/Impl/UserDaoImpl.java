@@ -22,4 +22,9 @@ public class UserDaoImpl implements UserDao {
     public ArrayList<User> getAll() {
         return null;
     }
+
+    @Override
+    public String generateNewId() {
+        return null;
+    }
 }

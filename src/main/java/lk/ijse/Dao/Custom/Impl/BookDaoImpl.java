@@ -51,4 +51,19 @@ public class BookDaoImpl implements BookDao {
 
         return (ArrayList<Book>) books;
     }
+
+    @Override
+    public String generateNewId() {
+        Session session = FactoryConfiguration.getFactoryConfiguration().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Query query = session.createQuery("SELECT id FROM Book ORDER BY id DESC");
+        query.setMaxResults(1);
+        List results = query.list();
+
+        transaction.commit();
+        session.close();
+
+        return (results.size() == 0) ? null : (String) results.get(0);
+    }
 }

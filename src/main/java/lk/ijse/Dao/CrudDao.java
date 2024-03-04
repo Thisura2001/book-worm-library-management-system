@@ -12,4 +12,6 @@ public interface CrudDao <T> extends SuperDao{
     boolean update(T book);
 
     ArrayList<T> getAll();
+
+    String generateNewId();
 }

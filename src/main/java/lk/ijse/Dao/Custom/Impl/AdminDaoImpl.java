@@ -31,4 +31,9 @@ public class AdminDaoImpl implements AdminDao {
     public ArrayList<Admin> getAll() {
         return null;
     }
+
+    @Override
+    public String generateNewId() {
+        return null;
+    }
 }

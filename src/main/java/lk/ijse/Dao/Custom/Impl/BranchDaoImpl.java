@@ -22,4 +22,9 @@ public class BranchDaoImpl implements BranchDao {
     public ArrayList<Branch> getAll() {
         return null;
     }
+
+    @Override
+    public String generateNewId() {
+        return null;
+    }
 }

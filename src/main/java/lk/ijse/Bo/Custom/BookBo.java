@@ -11,4 +11,6 @@ public interface BookBo extends SuperBo {
     boolean updateBook(BookDto bookDto);
 
     List<BookDto> getAll();
+
+    String generateNewBookID();
 }

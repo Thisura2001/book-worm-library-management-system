@@ -52,6 +52,7 @@ public class BookFormController implements Initializable {
 
     @FXML
     private JFXTextField txtBookTitle;
+    ObservableList<BookTm> obList = FXCollections.observableArrayList();
 
     BookBo bookBo = (BookBo) BoFactory.getInstance().getBO(BoFactory.BOTypes.BOOK);
     @Override
@@ -63,6 +64,18 @@ public class BookFormController implements Initializable {
     }
 
     private void setBookId() {
+
+        String BookId = bookBo.generateNewBookID();
+
+        if (BookId == null) {
+            txtBookId.setText("B000001");
+        } else {
+            String[] split = BookId.split("[B]");
+            int lastDigits = Integer.parseInt(split[1]);
+            lastDigits++;
+            String newID = String.format("B%06d", lastDigits);
+            txtBookId.setText(newID);
+        }
 
     }
     private void tableListener() {
@@ -85,7 +98,7 @@ public class BookFormController implements Initializable {
     }
 
     private void getAll() {
-        ObservableList<BookTm> obList = FXCollections.observableArrayList();
+
         try {
             List<BookDto> all = bookBo.getAll();
 
@@ -108,6 +121,7 @@ public class BookFormController implements Initializable {
         boolean isAdd = bookBo.AddBook(new BookDto(id, title, author, availability));
         if (isAdd) {
             new Alert(Alert.AlertType.CONFIRMATION, "Book Added").show();
+            refreshTable();
         }else{
             new Alert(Alert.AlertType.ERROR, "Book Not Added").show();
         }
@@ -123,11 +137,16 @@ public class BookFormController implements Initializable {
         boolean isUpdate = bookBo.updateBook(new BookDto(id, title, author, availability));
         if(isUpdate){
             new Alert(Alert.AlertType.CONFIRMATION, "Book Updated").show();
+            refreshTable();
         }else{
             new Alert(Alert.AlertType.ERROR, "Book Not Updated").show();
         }
     }
 
     public void btnDeleteOnAction(ActionEvent actionEvent) {
+    }
+    private void refreshTable() {
+        obList.clear();
+        getAll();
     }
 }
