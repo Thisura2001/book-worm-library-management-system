@@ -13,4 +13,6 @@ public interface BookBo extends SuperBo {
     List<BookDto> getAll();
 
     String generateNewBookID();
+
+    boolean deleteBook(String id);
 }

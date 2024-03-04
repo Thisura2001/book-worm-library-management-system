@@ -14,4 +14,6 @@ public interface CrudDao <T> extends SuperDao{
     ArrayList<T> getAll();
 
     String generateNewId();
+
+    boolean Delete(String id);
 }

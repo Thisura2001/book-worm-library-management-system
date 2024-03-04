@@ -27,4 +27,9 @@ public class UserDaoImpl implements UserDao {
     public String generateNewId() {
         return null;
     }
+
+    @Override
+    public boolean Delete(String id) {
+        return false;
+    }
 }

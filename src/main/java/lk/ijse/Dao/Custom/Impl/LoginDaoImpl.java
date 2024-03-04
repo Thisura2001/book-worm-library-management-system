@@ -30,6 +30,11 @@ public class LoginDaoImpl implements LoginDao {
     }
 
     @Override
+    public boolean Delete(String id) {
+        return false;
+    }
+
+    @Override
     public boolean ValidAdmin(Admin admin) {
         return false;
     }

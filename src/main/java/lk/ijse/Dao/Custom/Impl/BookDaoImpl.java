@@ -66,4 +66,21 @@ public class BookDaoImpl implements BookDao {
 
         return (results.size() == 0) ? null : (String) results.get(0);
     }
+
+    @Override
+    public boolean Delete(String id) {
+        Session session = FactoryConfiguration.getFactoryConfiguration().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Book book = new Book();
+        book.setId(id);
+
+        session.remove(book);
+
+
+
+        transaction.commit();
+        session.close();
+        return true;
+    }
 }

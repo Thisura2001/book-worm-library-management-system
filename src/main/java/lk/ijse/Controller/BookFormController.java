@@ -121,6 +121,7 @@ public class BookFormController implements Initializable {
         boolean isAdd = bookBo.AddBook(new BookDto(id, title, author, availability));
         if (isAdd) {
             new Alert(Alert.AlertType.CONFIRMATION, "Book Added").show();
+            clearField();
             refreshTable();
         }else{
             new Alert(Alert.AlertType.ERROR, "Book Not Added").show();
@@ -137,6 +138,7 @@ public class BookFormController implements Initializable {
         boolean isUpdate = bookBo.updateBook(new BookDto(id, title, author, availability));
         if(isUpdate){
             new Alert(Alert.AlertType.CONFIRMATION, "Book Updated").show();
+            clearField();
             refreshTable();
         }else{
             new Alert(Alert.AlertType.ERROR, "Book Not Updated").show();
@@ -144,9 +146,24 @@ public class BookFormController implements Initializable {
     }
 
     public void btnDeleteOnAction(ActionEvent actionEvent) {
+        String id = txtBookId.getText();
+        boolean isDelete = bookBo.deleteBook(id);
+        if(isDelete){
+            new Alert(Alert.AlertType.CONFIRMATION, "Book Deleted").show();
+            clearField();
+            refreshTable();
+        }else{
+            new Alert(Alert.AlertType.ERROR, "Book Not Deleted").show();
+        }
     }
     private void refreshTable() {
         obList.clear();
         getAll();
+    }
+    private void clearField(){
+        txtBookId.clear();
+        txtBookTitle.clear();
+        txtAuthor.clear();
+        txtAvailability.clear();
     }
 }

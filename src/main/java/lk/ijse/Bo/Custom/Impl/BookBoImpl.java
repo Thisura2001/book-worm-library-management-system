@@ -36,4 +36,9 @@ public class BookBoImpl implements BookBo {
         return bookDao.generateNewId();
     }
 
+    @Override
+    public boolean deleteBook(String id) {
+        return bookDao.Delete(id);
+    }
+
 }

@@ -36,4 +36,9 @@ public class AdminDaoImpl implements AdminDao {
     public String generateNewId() {
         return null;
     }
+
+    @Override
+    public boolean Delete(String id) {
+        return false;
+    }
 }

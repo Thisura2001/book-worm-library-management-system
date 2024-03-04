@@ -27,4 +27,9 @@ public class BranchDaoImpl implements BranchDao {
     public String generateNewId() {
         return null;
     }
+
+    @Override
+    public boolean Delete(String id) {
+        return false;
+    }
 }
