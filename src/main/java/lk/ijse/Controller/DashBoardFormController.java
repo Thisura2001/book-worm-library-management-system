@@ -1,17 +1,26 @@
 package lk.ijse.Controller;
 
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
+import java.net.URL;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ResourceBundle;
 
-public class DashBoardFormController {
+public class DashBoardFormController implements Initializable {
 
     @FXML
     private AnchorPane MainRoot;
@@ -24,6 +33,19 @@ public class DashBoardFormController {
 
     @FXML
     private AnchorPane root;
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        Timeline time = new Timeline(new KeyFrame(Duration.ZERO, e -> {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+            lbltimeTop.setText(LocalTime.now().format(formatter));
+        }),
+                new KeyFrame(Duration.seconds(1))
+        );
+        time.setCycleCount(Animation.INDEFINITE);
+        time.play();
+
+        lblDateTop.setText(java.time.LocalDate.now().toString());
+    }
 
     @FXML
     void btnLogOut(ActionEvent event) throws IOException {
@@ -80,6 +102,4 @@ public class DashBoardFormController {
         root.getChildren().clear();
         root.getChildren().add(anchorPane);
     }
-
-
 }

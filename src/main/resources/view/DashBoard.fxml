@@ -69,20 +69,30 @@
       </AnchorPane>
       <AnchorPane layoutX="868.0" layoutY="19.0" prefHeight="46.0" prefWidth="247.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;">
          <children>
-            <Label fx:id="lbltimeTop" layoutX="80.0" layoutY="5.0" prefHeight="18.0" prefWidth="68.0" text="00:00">
+            <Label fx:id="lbltimeTop" layoutX="82.0" layoutY="5.0" prefHeight="35.0" prefWidth="136.0" text=" 00:00">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
+            <ImageView fitHeight="35.0" fitWidth="38.0" layoutX="27.0" layoutY="5.0">
+               <image>
+                  <Image url="@../images/icons8-time-50.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="1209.0" layoutY="19.0" prefHeight="46.0" prefWidth="247.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;">
          <children>
-            <Label fx:id="lblDateTop" layoutX="40.0" layoutY="5.0" prefHeight="35.0" prefWidth="168.0" text="DD/MM/YYYY">
+            <Label fx:id="lblDateTop" layoutX="66.0" layoutY="5.0" prefHeight="35.0" prefWidth="158.0" text="DD/MM/YYYY">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
+            <ImageView fitHeight="35.0" fitWidth="38.0" layoutX="13.0" layoutY="5.0">
+               <image>
+                  <Image url="@../images/icons8-date.gif" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>
