@@ -1,5 +1,6 @@
 package lk.ijse.Util;
 
+import lk.ijse.Entity.Admin;
 import lk.ijse.Entity.Book;
 import lk.ijse.Entity.Branch;
 import lk.ijse.Entity.User;
@@ -21,6 +22,7 @@ public class FactoryConfiguration {
                 addAnnotatedClass(User.class)
                 .addAnnotatedClass(Book.class)
                 .addAnnotatedClass(Branch.class)
+                .addAnnotatedClass(Admin.class)
                 .addAnnotatedClass(Long.class);
         Metadata metadata = metadataSources.getMetadataBuilder().build();
         sessionFactory = metadata.getSessionFactoryBuilder().build();

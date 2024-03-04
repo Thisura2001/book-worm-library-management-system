@@ -4,10 +4,7 @@ import lk.ijse.Bo.Custom.Impl.BookBoImpl;
 import lk.ijse.Bo.Custom.Impl.BranchBoImpl;
 import lk.ijse.Bo.Custom.Impl.LoginBoImpl;
 import lk.ijse.Bo.Custom.Impl.UserBoImpl;
-import lk.ijse.Dao.Custom.Impl.BookDaoImpl;
-import lk.ijse.Dao.Custom.Impl.BranchDaoImpl;
-import lk.ijse.Dao.Custom.Impl.LoginDaoImpl;
-import lk.ijse.Dao.Custom.Impl.UserDaoImpl;
+import lk.ijse.Dao.Custom.Impl.*;
 
 public class DaoFactory implements SuperDao{
     private static DaoFactory daoFactory;
@@ -20,14 +17,14 @@ public class DaoFactory implements SuperDao{
     }
 
     public enum DAOTypes {
-        ADMIN,BOOK,BRANCH,USER
+        ADMIN,BOOK,BRANCH,USER,LOGIN
     }
 
     public SuperDao getDAO(DAOTypes daoTypes) {
 
         switch (daoTypes) {
 
-            case ADMIN:
+            case LOGIN:
                 return new LoginDaoImpl();
             case BOOK:
                 return new BookDaoImpl();
@@ -35,6 +32,8 @@ public class DaoFactory implements SuperDao{
                 return new BranchDaoImpl();
             case USER:
                 return new UserDaoImpl();
+            case ADMIN:
+                return new AdminDaoImpl();
             default:
                 return null;
         }

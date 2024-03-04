@@ -1,9 +1,6 @@
 package lk.ijse.Bo;
 
-import lk.ijse.Bo.Custom.Impl.BookBoImpl;
-import lk.ijse.Bo.Custom.Impl.BranchBoImpl;
-import lk.ijse.Bo.Custom.Impl.LoginBoImpl;
-import lk.ijse.Bo.Custom.Impl.UserBoImpl;
+import lk.ijse.Bo.Custom.Impl.*;
 
 public class BoFactory implements SuperBo{
     private static BoFactory boFactory;
@@ -17,7 +14,7 @@ public class BoFactory implements SuperBo{
     }
 
     public enum BOTypes {
-       ADMIN,BOOK,BRANCH,USER
+       ADMIN,BOOK,BRANCH,USER,LOGIN
 
     }
 
@@ -25,7 +22,7 @@ public class BoFactory implements SuperBo{
 
         switch (boTypes) {
 
-            case ADMIN:
+            case LOGIN:
                 return new LoginBoImpl();
             case BOOK:
                 return new BookBoImpl();
@@ -33,6 +30,8 @@ public class BoFactory implements SuperBo{
                 return new BranchBoImpl();
             case USER:
                 return new UserBoImpl();
+            case ADMIN:
+                return new AdminBoImpl();
             default:
                 return null;
         }

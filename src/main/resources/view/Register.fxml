@@ -19,12 +19,7 @@
       <AnchorPane layoutX="50.0" layoutY="57.0" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #ffffff;">
          <children>
             <TextField fx:id="txtUserName" layoutX="48.0" layoutY="154.0" prefHeight="50.0" prefWidth="304.0" promptText="Enter Your UserName" />
-            <JFXButton buttonType="RAISED" layoutX="51.0" layoutY="511.0" onAction="#btnRegisterOnAction" prefHeight="38.0" prefWidth="142.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 50;" text="Register">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="234.0" layoutY="511.0" onAction="#btnLoginOnAction" prefHeight="38.0" prefWidth="142.0" style="-fx-background-color: #2ed573; -fx-background-radius: 50;" text="Log">
+            <JFXButton buttonType="RAISED" layoutX="84.0" layoutY="483.0" onAction="#btnRegisterOnAction" prefHeight="54.0" prefWidth="252.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 50;" text="Register">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
