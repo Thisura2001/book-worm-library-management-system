@@ -16,7 +16,7 @@
             <Font name="System Bold" size="48.0" />
          </font>
       </Label>
-      <TableView layoutX="37.0" layoutY="132.0" prefHeight="258.0" prefWidth="1095.0">
+      <TableView fx:id="tblBranch" layoutX="37.0" layoutY="132.0" prefHeight="258.0" prefWidth="1095.0">
         <columns>
           <TableColumn fx:id="colBranchId" minWidth="3.999969482421875" prefWidth="178.3999900817871" text="Branch_Id" />
           <TableColumn fx:id="colBranchName" prefWidth="227.2000274658203" text="Name" />
@@ -54,8 +54,8 @@
       <JFXTextField fx:id="txtBranchName" layoutX="166.0" layoutY="539.0" prefHeight="26.0" prefWidth="302.0" />
       <JFXTextField fx:id="txtBranchAddress" layoutX="166.0" layoutY="629.0" prefHeight="26.0" prefWidth="302.0" />
       <JFXTextField fx:id="txtBranchContact" layoutX="633.0" layoutY="453.0" prefHeight="26.0" prefWidth="243.0" />
-      <RadioButton fx:id="rdbtnOpen" layoutX="633.0" layoutY="544.0" mnemonicParsing="false" text="Open" />
-      <RadioButton fx:id="rdBtnClose" layoutX="633.0" layoutY="576.0" mnemonicParsing="false" text="Close" />
+      <RadioButton fx:id="rdbtnOpen" layoutX="633.0" layoutY="544.0" mnemonicParsing="false" onAction="#rdbtnOpenOnAction" text="Open" />
+      <RadioButton fx:id="rdBtnClose" layoutX="633.0" layoutY="576.0" mnemonicParsing="false" onAction="#rdBtnCloseOnAction" text="Close" />
       <JFXButton buttonType="RAISED" layoutX="970.0" layoutY="436.0" onAction="#btnAddOnAction" prefHeight="60.0" prefWidth="144.0" style="-fx-background-color: #9b59b6; -fx-background-radius: 50;" text="Add">
          <font>
             <Font name="System Bold" size="18.0" />
