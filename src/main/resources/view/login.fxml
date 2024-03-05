@@ -32,7 +32,6 @@
                </font>
             </Label>
             <TextField fx:id="txtUserName" layoutX="499.0" layoutY="261.0" onAction="#txtUsernameOnAction" prefHeight="54.0" prefWidth="343.0" promptText="UserName" style="-fx-background-radius: 40;" />
-            <PasswordField fx:id="txtPassword" layoutX="502.0" layoutY="394.0" prefHeight="54.0" prefWidth="343.0" promptText="Password" style="-fx-background-radius: 40;" />
             <RadioButton fx:id="btnRadio" layoutX="503.0" layoutY="463.0" mnemonicParsing="false" onAction="#btnRadioOnAction" text="Show Password" />
             <JFXButton fx:id="btnLogin" buttonType="RAISED" layoutX="595.0" layoutY="504.0" onAction="#btnLoginOnAction" prefHeight="42.0" prefWidth="151.0" style="-fx-background-color: #000000; -fx-background-radius: 50;" text="Log in" textFill="WHITE">
                <font>
@@ -69,7 +68,8 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <TextField fx:id="txtShowPassword" layoutX="502.0" layoutY="394.0" onAction="#txtPasswordOnAction" prefHeight="54.0" prefWidth="343.0" promptText="Password" style="-fx-background-radius: 40;" />
+            <TextField fx:id="txtShowPassword" layoutX="499.0" layoutY="386.0" onAction="#txtPasswordOnAction" prefHeight="54.0" prefWidth="343.0" promptText="Password" style="-fx-background-radius: 40;" />
+            <PasswordField fx:id="txtPassword" layoutX="499.0" layoutY="386.0" prefHeight="54.0" prefWidth="343.0" promptText="Password" style="-fx-background-radius: 40;" />
          </children>
       </AnchorPane>
    </children>
