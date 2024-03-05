@@ -32,4 +32,9 @@ public class BranchDaoImpl implements BranchDao {
     public boolean Delete(String id) {
         return false;
     }
+
+    @Override
+    public boolean validateAdmin(Branch admin) {
+        return false;
+    }
 }

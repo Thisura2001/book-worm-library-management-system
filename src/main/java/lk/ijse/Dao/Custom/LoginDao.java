@@ -5,5 +5,4 @@ import lk.ijse.Dao.SuperDao;
 import lk.ijse.Entity.Admin;
 
 public interface LoginDao extends CrudDao<Admin> {
-    boolean ValidAdmin(Admin admin);
 }

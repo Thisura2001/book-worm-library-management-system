@@ -54,8 +54,23 @@ public class LoginFormController {
     }
 
     public void btnLoginOnAction(ActionEvent actionEvent) throws IOException {
-        loadDashBoard();
-    }
+        String userName = txtUserName.getText();
+        String password = txtPassword.getText();
+
+
+            AdminDto adminDto = new AdminDto(userName, password);
+
+            boolean isValid = loginBo.validUser(adminDto);
+
+            if (isValid) {
+                new Alert(Alert.AlertType.INFORMATION,"WelCome :)").showAndWait();
+              LoadDashBoard();
+            }else {
+
+                new Alert(Alert.AlertType.ERROR, "Invalid user name or password :( !!!").show();
+            }
+        }
+
 
 
     public void btnResgisterOnAction(ActionEvent actionEvent) throws IOException {
@@ -74,8 +89,8 @@ public class LoginFormController {
     public void txtUsernameOnAction(ActionEvent actionEvent) {
         txtPassword.requestFocus();
     }
-    private void loadDashBoard() throws IOException {
-        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/Dashboard.fxml"));
+    private void LoadDashBoard() throws IOException {
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/DashBoard.fxml"));
         Scene scene = new Scene(rootNode);
         Stage stage = (Stage) this.root.getScene().getWindow();
         stage.setTitle("book worm");

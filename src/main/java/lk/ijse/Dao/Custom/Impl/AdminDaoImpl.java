@@ -41,4 +41,9 @@ public class AdminDaoImpl implements AdminDao {
     public boolean Delete(String id) {
         return false;
     }
+
+    @Override
+    public boolean validateAdmin(Admin admin) {
+        return false;
+    }
 }

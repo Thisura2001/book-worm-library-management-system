@@ -32,4 +32,9 @@ public class UserDaoImpl implements UserDao {
     public boolean Delete(String id) {
         return false;
     }
+
+    @Override
+    public boolean validateAdmin(User admin) {
+        return false;
+    }
 }

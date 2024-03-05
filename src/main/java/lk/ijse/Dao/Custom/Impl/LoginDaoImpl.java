@@ -35,10 +35,18 @@ public class LoginDaoImpl implements LoginDao {
     }
 
     @Override
-    public boolean ValidAdmin(Admin admin) {
+    public boolean validateAdmin(Admin admin) {
+        Session session = FactoryConfiguration.getFactoryConfiguration().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Admin current_user = session.get(Admin.class, admin.getUserName());
+        if (current_user.getPassword().equals(admin.getPassword())) {
+            return true;
+        }
+        transaction.commit();
+        session.close();
         return false;
     }
-
 //    @Override
 //    public boolean ValidAdmin(Admin admin) {
 //        Session session = FactoryConfiguration.getFactoryConfiguration().getSession();

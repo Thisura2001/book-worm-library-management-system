@@ -83,4 +83,9 @@ public class BookDaoImpl implements BookDao {
         session.close();
         return true;
     }
+
+    @Override
+    public boolean validateAdmin(Book admin) {
+        return false;
+    }
 }

@@ -16,4 +16,6 @@ public interface CrudDao <T> extends SuperDao{
     String generateNewId();
 
     boolean Delete(String id);
+
+    boolean validateAdmin(T admin);
 }
