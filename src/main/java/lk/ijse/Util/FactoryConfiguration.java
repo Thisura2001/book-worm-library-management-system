@@ -22,8 +22,7 @@ public class FactoryConfiguration {
                 addAnnotatedClass(User.class)
                 .addAnnotatedClass(Book.class)
                 .addAnnotatedClass(Branch.class)
-                .addAnnotatedClass(Admin.class)
-                .addAnnotatedClass(Long.class);
+                .addAnnotatedClass(Admin.class);
         Metadata metadata = metadataSources.getMetadataBuilder().build();
         sessionFactory = metadata.getSessionFactoryBuilder().build();
     }
