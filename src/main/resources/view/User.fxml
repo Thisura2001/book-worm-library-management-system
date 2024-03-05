@@ -16,7 +16,7 @@
             <Font name="System Bold" size="36.0" />
          </font>
       </Label>
-      <TableView layoutX="38.0" layoutY="119.0" prefHeight="269.0" prefWidth="1094.0">
+      <TableView fx:id="tblUser" layoutX="38.0" layoutY="119.0" prefHeight="269.0" prefWidth="1094.0">
         <columns>
           <TableColumn fx:id="colUserId" prefWidth="208.8000144958496" text="User_id" />
           <TableColumn fx:id="colUserName" minWidth="5.60003662109375" prefWidth="231.19998168945312" text="Name" />
@@ -54,12 +54,12 @@
       <JFXTextField fx:id="txtUserName" layoutX="152.0" layoutY="540.0" prefHeight="26.0" prefWidth="241.0" />
       <JFXTextField fx:id="txtUserAddress" layoutX="152.0" layoutY="616.0" prefHeight="26.0" prefWidth="241.0" />
       <JFXTextField fx:id="txtUserContact" layoutX="585.0" layoutY="471.0" prefHeight="26.0" prefWidth="241.0" />
-      <RadioButton fx:id="rdbtnMail" layoutX="613.0" layoutY="580.0" mnemonicParsing="false" text="Male">
+      <RadioButton fx:id="rdbtnMail" layoutX="613.0" layoutY="580.0" mnemonicParsing="false" onAction="#rbBtnMaleOnAction" text="Male">
          <font>
             <Font size="14.0" />
          </font>
       </RadioButton>
-      <RadioButton fx:id="rdbtnfemale" layoutX="613.0" layoutY="612.0" mnemonicParsing="false" text="Female">
+      <RadioButton fx:id="rdbtnfemale" layoutX="613.0" layoutY="612.0" mnemonicParsing="false" onAction="#rbBtnFemaleOnAction" text="Female">
          <font>
             <Font size="14.0" />
          </font>
