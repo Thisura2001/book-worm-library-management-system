@@ -17,7 +17,7 @@ public class DaoFactory implements SuperDao{
     }
 
     public enum DAOTypes {
-        ADMIN,BOOK,BRANCH,USER,LOGIN
+        ADMIN,BOOK,BRANCH,USER,LOGIN,BookDetails
     }
 
     public SuperDao getDAO(DAOTypes daoTypes) {
@@ -34,6 +34,8 @@ public class DaoFactory implements SuperDao{
                 return new UserDaoImpl();
             case ADMIN:
                 return new AdminDaoImpl();
+            case BookDetails:
+                return new BookDetailsDaoImpl();
             default:
                 return null;
         }

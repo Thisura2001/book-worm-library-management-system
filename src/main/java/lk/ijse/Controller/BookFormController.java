@@ -118,7 +118,13 @@ public class BookFormController implements Initializable {
         String author = txtAuthor.getText();
         int availability = Integer.parseInt(txtAvailability.getText());
 
-        boolean isAdd = bookBo.AddBook(new BookDto(id, title, author, availability));
+        BookDto bookDto = new BookDto();
+        bookDto.setId(id);
+        bookDto.setTitle(title);
+        bookDto.setAuthor(author);
+        bookDto.setAvailability(availability);
+
+        boolean isAdd = bookBo.AddBook(bookDto);
         if (isAdd) {
             new Alert(Alert.AlertType.CONFIRMATION, "Book Added").show();
             clearField();
@@ -135,7 +141,13 @@ public class BookFormController implements Initializable {
         String author = txtAuthor.getText();
         int availability = Integer.parseInt(txtAvailability.getText());
 
-        boolean isUpdate = bookBo.updateBook(new BookDto(id, title, author, availability));
+        BookDto bookDto = new BookDto();
+        bookDto.setId(id);
+        bookDto.setTitle(title);
+        bookDto.setAuthor(author);
+        bookDto.setAvailability(availability);
+
+        boolean isUpdate = bookBo.updateBook(bookDto);
         if(isUpdate){
             new Alert(Alert.AlertType.CONFIRMATION, "Book Updated").show();
             clearField();

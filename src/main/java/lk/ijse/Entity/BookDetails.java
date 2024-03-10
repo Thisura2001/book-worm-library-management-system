@@ -15,7 +15,7 @@ import java.util.Date;
 @ToString
 
 @Entity
-public class bookDetails {
+public class BookDetails {
     @Id
     private String id;
 

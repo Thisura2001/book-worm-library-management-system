@@ -14,7 +14,7 @@ public class BoFactory implements SuperBo{
     }
 
     public enum BOTypes {
-       ADMIN,BOOK,BRANCH,USER,LOGIN
+       ADMIN,BOOK,BRANCH,USER,LOGIN,BookDetails
 
     }
 
@@ -32,6 +32,8 @@ public class BoFactory implements SuperBo{
                 return new UserBoImpl();
             case ADMIN:
                 return new AdminBoImpl();
+            case BookDetails:
+                return new BookDetailsBoImpl();
             default:
                 return null;
         }
