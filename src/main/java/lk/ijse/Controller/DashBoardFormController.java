@@ -72,6 +72,14 @@ public class DashBoardFormController implements Initializable {
 
     @FXML
     void btnManageTranceAction(ActionEvent event) {
+        AnchorPane anchorPane = null;
+        try {
+            anchorPane = FXMLLoader.load(getClass().getResource("/view/books_Details.fxml"));
+            loadWindow(anchorPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
     }
 

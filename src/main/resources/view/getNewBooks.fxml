@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="700.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Controller.GetNewBooksController">
+    <children>
+        <ImageView fitHeight="714.0" fitWidth="500.0">
+            <image>
+                <Image url="@../images/stock-vector-abstract-waving-particle-technology-background-design-abstract-wave-moving-dots-flow-particles-hi-2128959116.jpg" />
+            </image>
+        </ImageView>
+        <AnchorPane layoutX="21.0" layoutY="20.0" prefHeight="674.0" prefWidth="458.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <Label layoutX="23.0" layoutY="146.0" text="Tranceaction_Id">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="26.0" layoutY="234.0" text="User_ID">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="23.0" layoutY="319.0" text="Book_ID">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="23.0" layoutY="405.0" text="Availability">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="23.0" layoutY="479.0" text="Day The Book Was Taken">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="txttrId" layoutX="229.0" layoutY="146.0" prefHeight="35.0" prefWidth="178.0" />
+            <JFXComboBox fx:id="cmbUser" layoutX="150.0" layoutY="239.0" onAction="#cmbUserOnAction" prefHeight="26.0" prefWidth="268.0" />
+            <JFXComboBox fx:id="cmbBook" layoutX="150.0" layoutY="324.0" onAction="#cmbBookOnAction" prefHeight="26.0" prefWidth="268.0" />
+            <DatePicker fx:id="datepicker" layoutX="23.0" layoutY="533.0" onAction="#datepickerOnAction" prefHeight="50.0" prefWidth="364.0" />
+            <TextField fx:id="txtAvailability" layoutX="193.0" layoutY="398.0" prefHeight="50.0" prefWidth="72.0" />
+            <Label layoutX="128.0" layoutY="29.0" text="Tranceaction" textFill="#8e8a11">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
+            <JFXButton buttonType="RAISED" layoutX="141.0" layoutY="605.0" onAction="#btnGetOnAction" prefHeight="37.0" prefWidth="191.0" style="-fx-background-color: #40739e; -fx-background-radius: 50;" text="Get" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </JFXButton>
+         </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

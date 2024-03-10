@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="714.0" prefWidth="1170.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Controller.BooksDetailsFormController">
+   <children>
+      <TableView fx:id="tblBookDetails" layoutX="51.0" layoutY="134.0" prefHeight="235.0" prefWidth="1067.0">
+        <columns>
+          <TableColumn fx:id="coltrId" prefWidth="208.0000114440918" text="TranceAction_Id" />
+          <TableColumn fx:id="colUserId" prefWidth="194.39999389648438" text="User_Id" />
+            <TableColumn fx:id="colDate" prefWidth="224.0" text="Date" />
+            <TableColumn fx:id="colBookName" prefWidth="233.5999755859375" text="Book_name" />
+            <TableColumn fx:id="colStatus" prefWidth="208.00006103515625" text="status" />
+        </columns>
+      </TableView>
+      <Label layoutX="47.0" layoutY="31.0" text="Manage TranceActions">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="btngetNewBooks" buttonType="RAISED" layoutX="998.0" layoutY="72.0" onAction="#btnGetNewBooksOnAction" prefHeight="47.0" prefWidth="120.0" style="-fx-background-color: #4cd137; -fx-background-radius: 50;" text="Get New Books">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnViewUnReturn" buttonType="RAISED" layoutX="850.0" layoutY="72.0" onAction="#btnViewUnReturnOnAction" prefHeight="47.0" prefWidth="120.0" style="-fx-background-color: #273c75; -fx-background-radius: 50;" text="Veiw un Return" textFill="#faf8f8">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnMarkAsReturend" buttonType="RAISED" layoutX="850.0" layoutY="383.0" onAction="#btnMarkAsReturendOnAction" prefHeight="47.0" prefWidth="120.0" style="-fx-background-color: #273c75; -fx-background-radius: 50;" text="Mark as returned" textFill="#faf8f8">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnDelete" buttonType="RAISED" layoutX="998.0" layoutY="383.0" onAction="#btnDeleteOnAction" prefHeight="47.0" prefWidth="120.0" style="-fx-background-color: #e84118; -fx-background-radius: 50;" text="Delete">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <TableView fx:id="tblBook" layoutX="47.0" layoutY="449.0" prefHeight="235.0" prefWidth="1067.0">
+         <columns>
+            <TableColumn fx:id="colBookId" prefWidth="232.00003051757812" text="BookId" />
+            <TableColumn fx:id="coltitle" prefWidth="282.3999938964844" text="Title" />
+            <TableColumn fx:id="colAuthor" prefWidth="280.79998779296875" text="Author" />
+            <TableColumn fx:id="colAvailability" prefWidth="272.0" text="Availability" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>
