@@ -3,6 +3,7 @@ package lk.ijse.Bo.Custom;
 import lk.ijse.Bo.SuperBo;
 import lk.ijse.Dto.UserDto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface UserBo extends SuperBo {
@@ -15,4 +16,6 @@ public interface UserBo extends SuperBo {
     boolean updateUser(UserDto userDto);
 
     boolean deleteUser(String id);
+
+    ArrayList<UserDto> getAllUnReturnedUsers();
 }

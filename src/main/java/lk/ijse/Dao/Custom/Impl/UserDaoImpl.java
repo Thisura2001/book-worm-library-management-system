@@ -85,4 +85,19 @@ public class UserDaoImpl implements UserDao {
     public boolean validateAdmin(User admin) {
         return false;
     }
+
+    @Override
+    public List<User> getAllUnReturnedUsers() {
+        Session session = FactoryConfiguration.getFactoryConfiguration().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        NativeQuery nativeQuery = session.createNativeQuery("SELECT DISTINCT * FROM User u JOIN BookDetalis b on u.id= b.id WHERE r.status='unReturend'");
+        nativeQuery.addEntity(User.class);
+        List<User> users = nativeQuery.list();
+
+        transaction.commit();
+        session.close();
+        return users;
+    }
 }
+

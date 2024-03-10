@@ -1,6 +1,7 @@
 package lk.ijse.Bo.Custom;
 
 import lk.ijse.Bo.SuperBo;
+import lk.ijse.Dto.BookDetailsDto;
 import lk.ijse.Dto.BookDto;
 
 import java.util.List;
@@ -15,4 +16,5 @@ public interface BookBo extends SuperBo {
     String generateNewBookID();
 
     boolean deleteBook(String id);
+
 }

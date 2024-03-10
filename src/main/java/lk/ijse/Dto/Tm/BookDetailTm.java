@@ -12,8 +12,8 @@ import java.util.Date;
 @ToString
 public class BookDetailTm {
     private String id;
-    private UserDto userDto;
+    private String user;
     private Date date;
-    private BookDto bookDto;
+    private String book;
     private String status;
 }

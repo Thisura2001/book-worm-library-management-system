@@ -26,7 +26,13 @@ public class BookBoImpl implements BookBo {
         ArrayList<BookDto> bookDtos = new ArrayList<>();
         ArrayList<Book>books = bookDao.getAll();
         for (Book book : books) {
-            bookDtos.add(new BookDto(book.getId(),book.getTitle(),book.getAuthor(),book.getAvailability()));
+            BookDto bookDto = new BookDto();
+            bookDto.setId(book.getId());
+            bookDto.setTitle(book.getTitle());
+            bookDto.setAuthor(book.getAuthor());
+            bookDto.setAvailability(book.getAvailability());
+
+            bookDtos.add(bookDto);
         }
         return bookDtos;
     }

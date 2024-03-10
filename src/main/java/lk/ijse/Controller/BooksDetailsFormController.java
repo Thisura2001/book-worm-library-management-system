@@ -1,18 +1,33 @@
 package lk.ijse.Controller;
 
 import com.jfoenix.controls.JFXButton;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.Bo.BoFactory;
+import lk.ijse.Bo.Custom.BookBo;
+import lk.ijse.Bo.Custom.BookDetailsBo;
+import lk.ijse.Dto.BookDetailsDto;
+import lk.ijse.Dto.BookDto;
+import lk.ijse.Dto.Tm.BookDetailTm;
+import lk.ijse.Dto.Tm.BookTm;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
 
-public class BooksDetailsFormController {
+public class BooksDetailsFormController implements Initializable {
 
     @FXML
     private AnchorPane root;
@@ -57,10 +72,64 @@ public class BooksDetailsFormController {
     private TableColumn<?, ?> coltrId;
 
     @FXML
-    private TableView<?> tblBook;
+    private TableView<BookTm> tblBook;
 
     @FXML
-    private TableView<?> tblBookDetails;
+    private TableView<BookDetailTm> tblBookDetails;
+
+    BookBo bookBo = (BookBo) BoFactory.getInstance().getBO(BoFactory.BOTypes.BOOK);
+    BookDetailsBo bookDetailsBo = (BookDetailsBo) BoFactory.getInstance().getBO(BoFactory.BOTypes.BookDetails);
+    ObservableList<BookTm> obList = FXCollections.observableArrayList();
+    ObservableList<BookDetailTm> obDetails = FXCollections.observableArrayList();
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        loadBooks();
+        setBookSellValueFactory();
+        btnDelete.setDisable(true);
+        btnMarkAsReturend.setDisable(true);
+        getAllBookDetails();
+        setBookDetailValueFactory();
+    }
+
+    private void setBookDetailValueFactory() {
+        coltrId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colUserId.setCellValueFactory(new PropertyValueFactory<>("user"));
+        colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
+        colBookName.setCellValueFactory(new PropertyValueFactory<>("book"));
+        colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+    }
+
+    private void getAllBookDetails() {
+        try {
+            List<BookDetailsDto> all = bookDetailsBo.getAllBookDetails();
+            for (BookDetailsDto bookDetailsDto : all) {
+                obDetails.add(new BookDetailTm(bookDetailsDto.getId(), bookDetailsDto.getUserDto().getId(), bookDetailsDto.getDate(), bookDetailsDto.getBookDto().getTitle(), bookDetailsDto.getStatus()));
+            }
+            tblBookDetails.setItems(obDetails);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    private void setBookSellValueFactory() {
+        colBookId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        coltitle.setCellValueFactory(new PropertyValueFactory<>("title"));
+        colAuthor.setCellValueFactory(new PropertyValueFactory<>("author"));
+        colAvailability.setCellValueFactory(new PropertyValueFactory<>("availability"));
+    }
+
+    private void loadBooks() {
+        try {
+            List<BookDto> all = bookBo.getAll();
+
+            for (BookDto bookDto : all) {
+                obList.add(new BookTm(bookDto.getId(), bookDto.getTitle(), bookDto.getAuthor(), bookDto.getAvailability()));
+            }
+            tblBook.setItems(obList);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
@@ -93,8 +162,12 @@ public class BooksDetailsFormController {
         stage.centerOnScreen();
         stage.show();
     }
-    private void loadWindow(AnchorPane anchorPane) {
-        root.getChildren().clear();
-        root.getChildren().add(anchorPane);
+    private void refreshTable() {
+
+        obList.clear();
+        getAllBookDetails();
+
+        obDetails.clear();
+        loadBooks();
     }
 }

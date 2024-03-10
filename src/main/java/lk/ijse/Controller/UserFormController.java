@@ -130,7 +130,14 @@ public class UserFormController implements Initializable {
         int contact = Integer.parseInt(txtUserContact.getText());
         String gender = status;
 
-        boolean isAdd = userBo.AddUser(new UserDto(id,name,address,contact,gender));
+        UserDto userDto = new UserDto();
+        userDto.setId(id);
+        userDto.setName(name);
+        userDto.setAddress(address);
+        userDto.setContact(contact);
+        userDto.setGender(gender);
+
+        boolean isAdd = userBo.AddUser(userDto);
         if (isAdd){
             new Alert(Alert.AlertType.CONFIRMATION ,"User Saved !!").show();
             clearFields();
@@ -147,7 +154,14 @@ public class UserFormController implements Initializable {
         int contact = Integer.parseInt(txtUserContact.getText());
         String gender = status;
 
-        boolean isUpdate = userBo.updateUser(new UserDto(id,name,address,contact,gender));
+        UserDto userDto = new UserDto();
+        userDto.setId(id);
+        userDto.setName(name);
+        userDto.setAddress(address);
+        userDto.setContact(contact);
+        userDto.setGender(gender);
+
+        boolean isUpdate = userBo.updateUser(userDto);
         if (isUpdate){
             new Alert(Alert.AlertType.CONFIRMATION ,"User Updated !!").show();
             clearFields();

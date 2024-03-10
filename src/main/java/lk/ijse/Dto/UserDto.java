@@ -17,12 +17,4 @@ public class UserDto {
     private int contact;
     private String gender;
     List<BookDto>bookDtoList = new ArrayList<>();
-
-    public UserDto(String id, String name, String address, int contact, String gender) {
-        this.id = id;
-        this.name = name;
-        this.address = address;
-        this.contact = contact;
-        this.gender = gender;
-    }
 }

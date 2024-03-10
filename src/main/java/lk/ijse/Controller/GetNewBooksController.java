@@ -7,6 +7,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.Bo.BoFactory;
+import lk.ijse.Bo.Custom.BookBo;
+import lk.ijse.Bo.Custom.BookDetailsBo;
+import lk.ijse.Bo.Custom.UserBo;
 
 public class GetNewBooksController {
 
@@ -27,6 +31,10 @@ public class GetNewBooksController {
 
     @FXML
     private JFXTextField txttrId;
+
+    UserBo userBo = (UserBo) BoFactory.getInstance().getBO(BoFactory.BOTypes.USER);
+    BookBo bookBo = (BookBo) BoFactory.getInstance().getBO(BoFactory.BOTypes.BOOK);
+    BookDetailsBo bookDetailsBo = (BookDetailsBo) BoFactory.getInstance().getBO(BoFactory.BOTypes.BookDetails);
 
     @FXML
     void btnGetOnAction(ActionEvent event) {
