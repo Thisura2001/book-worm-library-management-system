@@ -5,4 +5,5 @@ import lk.ijse.Dao.SuperDao;
 import lk.ijse.Entity.Book;
 
 public interface BookDao extends CrudDao<Book> {
+    Book search(String id);
 }

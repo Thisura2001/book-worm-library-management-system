@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface BookDetailsDao extends SuperDao {
     List<BookDetails> getAll();
+
+    String generateNewTranceactionID();
 }

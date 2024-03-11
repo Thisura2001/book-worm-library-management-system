@@ -18,4 +18,6 @@ public interface UserBo extends SuperBo {
     boolean deleteUser(String id);
 
     ArrayList<UserDto> getAllUnReturnedUsers();
+
+    UserDto searchUser(String id);
 }

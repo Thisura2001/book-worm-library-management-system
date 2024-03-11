@@ -17,4 +17,5 @@ public interface BookBo extends SuperBo {
 
     boolean deleteBook(String id);
 
+    BookDto searchBook(String id);
 }

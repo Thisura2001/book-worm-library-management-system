@@ -43,4 +43,9 @@ public class BookDetailsBoImpl implements BookDetailsBo {
         }
         return bookDetailsDtos;
     }
+
+    @Override
+    public String generateNewTranceactionID() {
+        return bookDetailsDao.generateNewTranceactionID();
+    }
 }

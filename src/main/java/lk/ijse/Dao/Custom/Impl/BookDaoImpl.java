@@ -88,4 +88,16 @@ public class BookDaoImpl implements BookDao {
     public boolean validateAdmin(Book admin) {
         return false;
     }
+
+    @Override
+    public Book search(String id) {
+        Session session = FactoryConfiguration.getFactoryConfiguration().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        Book book = session.get(Book.class, id);
+
+        transaction.commit();
+        session.close();
+        return book;
+    }
 }

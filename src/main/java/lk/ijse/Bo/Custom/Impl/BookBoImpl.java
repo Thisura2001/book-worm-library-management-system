@@ -47,4 +47,16 @@ public class BookBoImpl implements BookBo {
         return bookDao.Delete(id);
     }
 
+    @Override
+    public BookDto searchBook(String id) {
+        Book book = bookDao.search(id);
+        BookDto bookDto = new BookDto();
+        bookDto.setId(book.getId());
+        bookDto.setTitle(book.getTitle());
+        bookDto.setAuthor(book.getAuthor());
+        bookDto.setAvailability(book.getAvailability());
+
+        return bookDto;
+    }
+
 }

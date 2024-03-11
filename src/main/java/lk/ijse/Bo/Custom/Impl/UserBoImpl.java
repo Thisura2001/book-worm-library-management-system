@@ -63,4 +63,17 @@ public class UserBoImpl implements UserBo {
         }
         return userDtos;
     }
+
+    @Override
+    public UserDto searchUser(String id) {
+        User user = userDao.search(id);
+        UserDto userDto = new UserDto();
+        userDto.setId(user.getId());
+        userDto.setName(user.getName());
+        userDto.setAddress(user.getAddress());
+        userDto.setContact(user.getContact());
+        userDto.setGender(user.getGender());
+
+        return userDto;
+    }
 }

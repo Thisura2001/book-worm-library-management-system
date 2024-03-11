@@ -99,5 +99,17 @@ public class UserDaoImpl implements UserDao {
         session.close();
         return users;
     }
+
+    @Override
+    public User search(String id) {
+        Session session = FactoryConfiguration.getFactoryConfiguration().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        User user = session.get(User.class,id);
+
+        transaction.commit();
+        session.close();
+        return user;
+    }
 }
 

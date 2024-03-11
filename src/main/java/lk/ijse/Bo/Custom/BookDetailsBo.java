@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface BookDetailsBo extends SuperBo {
     List<BookDetailsDto> getAllBookDetails();
+
+    String generateNewTranceactionID();
 }
