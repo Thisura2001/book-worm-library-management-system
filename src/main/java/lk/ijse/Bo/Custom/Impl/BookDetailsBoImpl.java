@@ -87,4 +87,10 @@ public class BookDetailsBoImpl implements BookDetailsBo {
     public Boolean deleteDetails(String id) {
         return bookDetailsDao.Delete(id);
     }
+
+    @Override
+    public void markAsReturned(String id) {
+
+        bookDetailsDao.markAsReturned(id);
+    }
 }

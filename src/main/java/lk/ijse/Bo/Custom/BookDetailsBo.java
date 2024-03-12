@@ -13,4 +13,6 @@ public interface BookDetailsBo extends SuperBo {
     Boolean addBookDetails(BookDetailsDto bookDetailsDto);
 
     Boolean deleteDetails(String id);
+
+    void markAsReturned(String id);
 }

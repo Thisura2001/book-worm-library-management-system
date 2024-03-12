@@ -79,4 +79,19 @@ public class BookDetailsDaoImpl implements BookDetailsDao {
     public boolean validateAdmin(BookDetails admin) {
         return false;
     }
+
+    @Override
+    public void markAsReturned(String id) {
+        Session session = FactoryConfiguration.getFactoryConfiguration().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        BookDetails bookDetails = session.get(BookDetails.class, id);
+
+        bookDetails.setStatus("Returned");
+
+        session.update(bookDetails);
+
+        transaction.commit();
+        session.close();
+    }
 }

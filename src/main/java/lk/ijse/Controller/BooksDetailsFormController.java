@@ -171,7 +171,9 @@ public class BooksDetailsFormController implements Initializable {
 
     @FXML
     void btnMarkAsReturendOnAction(ActionEvent event) {
-
+        BookDetailTm bookDetails = tblBookDetails.getSelectionModel().getSelectedItem();
+        bookDetailsBo.markAsReturned(bookDetails.getId());
+        refreshTable();
     }
 
     @FXML

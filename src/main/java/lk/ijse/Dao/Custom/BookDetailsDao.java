@@ -8,4 +8,5 @@ import lk.ijse.Entity.BookDetails;
 import java.util.List;
 
 public interface BookDetailsDao extends CrudDao<BookDetails> {
+    void markAsReturned(String id);
 }
