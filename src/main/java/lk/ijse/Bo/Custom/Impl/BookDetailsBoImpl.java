@@ -35,6 +35,7 @@ public class BookDetailsBoImpl implements BookDetailsBo {
             userDto.setName(bookDetail.getUser().getName());
             userDto.setAddress(bookDetail.getUser().getAddress());
             userDto.setContact(bookDetail.getUser().getContact());
+            userDto.setGender(bookDetail.getUser().getGender());
             bookDetailsDto.setUserDto(userDto);
 
             BookDto bookDto = new BookDto();
@@ -76,6 +77,7 @@ public class BookDetailsBoImpl implements BookDetailsBo {
         user.setName(bookDetailsDto.getUserDto().getName());
         user.setAddress(bookDetailsDto.getUserDto().getAddress());
         user.setContact(bookDetailsDto.getUserDto().getContact());
+        user.setGender(bookDetailsDto.getUserDto().getGender());
         bookDetails.setUser(user);
 
         return bookDetailsDao.save(bookDetails);

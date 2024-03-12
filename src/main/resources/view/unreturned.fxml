@@ -15,10 +15,11 @@
       </Label>
       <TableView fx:id="tblUnReturned" layoutX="38.0" layoutY="125.0" prefHeight="548.0" prefWidth="1082.0">
         <columns>
-          <TableColumn fx:id="colUserId" prefWidth="246.39997482299805" text="User_id" />
-          <TableColumn fx:id="colUserName" prefWidth="276.7999267578125" text="Name" />
-            <TableColumn fx:id="ColUserAddress" prefWidth="276.7999267578125" text="Address" />
-            <TableColumn fx:id="colUserContact" prefWidth="281.60001220703134" text="Contact" />
+          <TableColumn fx:id="colUserId" prefWidth="202.40002822875977" text="User_id" />
+          <TableColumn fx:id="colUserName" prefWidth="230.40000915527344" text="Name" />
+            <TableColumn fx:id="ColUserAddress" prefWidth="236.00003051757812" text="Address" />
+            <TableColumn fx:id="colUserContact" prefWidth="201.5999755859375" text="Contact" />
+            <TableColumn fx:id="colUserGender" prefWidth="212.0" text="Gender" />
         </columns>
       </TableView>
    </children>

@@ -12,4 +12,5 @@ public class unReturnedTm {
     private String userName;
     private String userAddress;
     private int userContact;
+    private String userGender;
 }

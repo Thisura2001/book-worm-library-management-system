@@ -54,12 +54,16 @@ public class UserBoImpl implements UserBo {
     public ArrayList<UserDto> getAllUnReturnedUsers() {
         ArrayList<UserDto> userDtos = new ArrayList<>();
         List<User> users = userDao.getAllUnReturnedUsers();
+
         for (User user : users) {
             UserDto userDto = new UserDto();
             userDto.setId(user.getId());
             userDto.setName(user.getName());
             userDto.setAddress(user.getAddress());
             userDto.setContact(user.getContact());
+            userDto.setGender(user.getGender());
+
+            userDtos.add(userDto);
         }
         return userDtos;
     }

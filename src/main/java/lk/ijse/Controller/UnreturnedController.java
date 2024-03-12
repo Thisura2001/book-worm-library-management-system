@@ -36,6 +36,9 @@ public class UnreturnedController implements Initializable {
 
     @FXML
     private TableView<unReturnedTm> tblUnReturned;
+
+    @FXML
+    private TableColumn<?, ?> colUserGender;
     @FXML
     private AnchorPane root;
 
@@ -54,17 +57,25 @@ public class UnreturnedController implements Initializable {
        colUserName.setCellValueFactory(new PropertyValueFactory<>("userName"));
        ColUserAddress.setCellValueFactory(new PropertyValueFactory<>("userAddress"));
        colUserContact.setCellValueFactory(new PropertyValueFactory<>("userContact"));
+       colUserGender.setCellValueFactory(new PropertyValueFactory<>("userGender"));
     }
 
     private void getAllUnReturnedUsers() {
         try {
             ArrayList<UserDto>userDtos = userBo.getAllUnReturnedUsers();
             for (UserDto userDto : userDtos) {
-                obList.add(new unReturnedTm(userDto.getId(),userDto.getName(),userDto.getAddress(),userDto.getContact()));
+                obList.add(new unReturnedTm(
+                        userDto.getId(),
+                        userDto.getName(),
+                        userDto.getAddress(),
+                        userDto.getContact(),
+                        userDto.getGender()
+                ));
             }
+            tblUnReturned.setItems(obList);
         }catch (Exception e){
             e.printStackTrace();
         }
-        tblUnReturned.setItems(obList);
+
     }
 }
