@@ -158,6 +158,12 @@ public class BooksDetailsFormController implements Initializable {
             stage.centerOnScreen();
             stage.show();
 
+            stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                @Override
+                public void handle(WindowEvent event) {
+                    refreshTable();
+                }
+            });
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -179,6 +185,7 @@ public class BooksDetailsFormController implements Initializable {
         stage.show();
     }
     private void refreshTable() {
-
+        obDetails.clear();
+        getAllBookDetails();
     }
 }
