@@ -62,7 +62,17 @@ public class BookDetailsDaoImpl implements BookDetailsDao {
 
     @Override
     public boolean Delete(String id) {
-        return false;
+        Session session = FactoryConfiguration.getFactoryConfiguration().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        BookDetails bookDetails = new BookDetails();
+        bookDetails.setId(id);
+
+        session.remove(bookDetails);
+
+        transaction.commit();
+        session.close();
+        return true;
     }
 
     @Override

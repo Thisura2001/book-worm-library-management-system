@@ -8,6 +8,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
@@ -86,8 +87,6 @@ public class BooksDetailsFormController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadBooks();
         setBookSellValueFactory();
-        btnDelete.setDisable(true);
-        btnMarkAsReturend.setDisable(true);
         getAllBookDetails();
         setBookDetailValueFactory();
     }
@@ -134,7 +133,18 @@ public class BooksDetailsFormController implements Initializable {
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
-
+        try {
+            BookDetailTm bookDetailTm = tblBookDetails.getSelectionModel().getSelectedItem();
+                Boolean isDelete = bookDetailsBo.deleteDetails(bookDetailTm.getId());
+            if (isDelete) {
+                refreshTable();
+                new Alert(Alert.AlertType.CONFIRMATION,"Delete SuccessFully !!").show();
+            }else {
+                new Alert(Alert.AlertType.ERROR,"Try Again").show();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -170,10 +180,5 @@ public class BooksDetailsFormController implements Initializable {
     }
     private void refreshTable() {
 
-        obList.clear();
-        getAllBookDetails();
-
-        obDetails.clear();
-        loadBooks();
     }
 }

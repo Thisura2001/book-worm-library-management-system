@@ -82,4 +82,9 @@ public class BookDetailsBoImpl implements BookDetailsBo {
 
         return bookDetailsDao.save(bookDetails);
     }
+
+    @Override
+    public Boolean deleteDetails(String id) {
+        return bookDetailsDao.Delete(id);
+    }
 }
