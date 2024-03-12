@@ -21,6 +21,7 @@ import lk.ijse.Dto.UserDto;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
 public class UserFormController implements Initializable {
 
@@ -137,13 +138,16 @@ public class UserFormController implements Initializable {
         userDto.setContact(contact);
         userDto.setGender(gender);
 
-        boolean isAdd = userBo.AddUser(userDto);
-        if (isAdd){
-            new Alert(Alert.AlertType.CONFIRMATION ,"User Saved !!").show();
-            clearFields();
-            refreshTable();
-        }else {
-            new Alert(Alert.AlertType.ERROR ,"Try Again !!").show();
+        boolean ValidateUser = validateUser(name,address,contact);
+        if (ValidateUser){
+            boolean isAdd = userBo.AddUser(userDto);
+            if (isAdd){
+                new Alert(Alert.AlertType.CONFIRMATION ,"User Saved !!").show();
+                clearFields();
+                refreshTable();
+            }else {
+                new Alert(Alert.AlertType.ERROR ,"Try Again !!").show();
+            }
         }
     }
 
@@ -161,13 +165,16 @@ public class UserFormController implements Initializable {
         userDto.setContact(contact);
         userDto.setGender(gender);
 
-        boolean isUpdate = userBo.updateUser(userDto);
-        if (isUpdate){
-            new Alert(Alert.AlertType.CONFIRMATION ,"User Updated !!").show();
-            clearFields();
-            refreshTable();
-        } else {
-            new Alert(Alert.AlertType.ERROR ,"Try Again !!").show();
+        boolean ValidateUser = validateUser(name,address,contact);
+        if (ValidateUser){
+            boolean isUpdate = userBo.updateUser(userDto);
+            if (isUpdate){
+                new Alert(Alert.AlertType.CONFIRMATION ,"User Updated !!").show();
+                clearFields();
+                refreshTable();
+            } else {
+                new Alert(Alert.AlertType.ERROR ,"Try Again !!").show();
+            }
         }
     }
 
@@ -209,5 +216,23 @@ public class UserFormController implements Initializable {
         }else {
             status = "Female";
         }
+    }
+    private boolean validateUser(String name, String address, int contact){
+        boolean ValidateName = Pattern.matches("[a-zA-Z]{3,}",name);
+        if (!ValidateName){
+            new Alert(Alert.AlertType.ERROR ,"Invalid Name").show();
+            return false;
+        }
+        boolean ValidateAddress = Pattern.matches("[a-zA-Z0-9]{3,}",address);
+        if (!ValidateAddress){
+            new Alert(Alert.AlertType.ERROR ,"Invalid Address").show();
+            return false;
+        }
+        boolean ValidateContact = Pattern.matches("[0-9]{9,}",String.valueOf(contact));
+        if (!ValidateContact){
+            new Alert(Alert.AlertType.ERROR ,"Invalid Contact").show();
+            return false;
+        }
+        return true;
     }
 }

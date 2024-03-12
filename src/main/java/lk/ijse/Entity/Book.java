@@ -23,7 +23,7 @@ public class Book {
     private String author;
     private int availability;
 
-    @OneToMany(mappedBy = "book" , targetEntity = BookDetails.class)
+    @OneToMany(mappedBy = "book" , targetEntity = BookDetails.class,cascade = CascadeType.ALL)
     private List<BookDetails>bookDetailsList = new ArrayList<>();
 
     public Book(String id, String title, String author, int availability) {

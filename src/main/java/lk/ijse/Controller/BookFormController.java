@@ -21,6 +21,7 @@ import lk.ijse.Dto.Tm.BookTm;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
 public class BookFormController implements Initializable {
     @FXML
@@ -124,15 +125,17 @@ public class BookFormController implements Initializable {
         bookDto.setAuthor(author);
         bookDto.setAvailability(availability);
 
-        boolean isAdd = bookBo.AddBook(bookDto);
-        if (isAdd) {
-            new Alert(Alert.AlertType.CONFIRMATION, "Book Added").show();
-            clearField();
-            refreshTable();
-        }else{
-            new Alert(Alert.AlertType.ERROR, "Book Not Added").show();
+        boolean isValidate = ValidateBooks(title,author,availability);
+        if (isValidate){
+            boolean isAdd = bookBo.AddBook(bookDto);
+            if (isAdd) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Book Added").show();
+                clearField();
+                refreshTable();
+            }else{
+                new Alert(Alert.AlertType.ERROR, "Book Not Added").show();
+            }
         }
-
     }
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {
@@ -147,13 +150,17 @@ public class BookFormController implements Initializable {
         bookDto.setAuthor(author);
         bookDto.setAvailability(availability);
 
-        boolean isUpdate = bookBo.updateBook(bookDto);
-        if(isUpdate){
-            new Alert(Alert.AlertType.CONFIRMATION, "Book Updated").show();
-            clearField();
-            refreshTable();
-        }else{
-            new Alert(Alert.AlertType.ERROR, "Book Not Updated").show();
+        boolean isValidate = ValidateBooks(title,author,availability);
+
+        if (isValidate){
+            boolean isUpdate = bookBo.updateBook(bookDto);
+            if(isUpdate){
+                new Alert(Alert.AlertType.CONFIRMATION, "Book Updated").show();
+                clearField();
+                refreshTable();
+            }else{
+                new Alert(Alert.AlertType.ERROR, "Book Not Updated").show();
+            }
         }
     }
 
@@ -178,5 +185,24 @@ public class BookFormController implements Initializable {
         txtBookTitle.clear();
         txtAuthor.clear();
         txtAvailability.clear();
+    }
+    private boolean ValidateBooks(String title, String author, int availability) {
+
+        boolean isBookTitleValidate = Pattern.matches("[A-Za-z]+",title);
+        if (!isBookTitleValidate){
+            new Alert(Alert.AlertType.ERROR,"Invalid Book Title!!").show();
+            return false;
+        }
+        boolean isBookAuthorValidate = Pattern.matches("[A-Za-z]+",author);
+        if (!isBookAuthorValidate){
+            new Alert(Alert.AlertType.ERROR,"Invalid input for Author Try Again!!").show();
+            return false;
+        }
+        boolean isBookAvailability = Pattern.matches("[0-9]+",String.valueOf(availability));
+        if (!isBookAvailability){
+            new Alert(Alert.AlertType.ERROR,"Invalid input for Book Availability Try Again!!").show();
+            return false;
+        }
+        return true;
     }
 }

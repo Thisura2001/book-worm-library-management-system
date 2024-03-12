@@ -14,6 +14,7 @@ import lk.ijse.Bo.BoFactory;
 import lk.ijse.Bo.Custom.AdminBo;
 
 import java.io.IOException;
+import java.util.regex.Pattern;
 
 public class RegisterFormController {
 
@@ -31,13 +32,17 @@ public class RegisterFormController {
         String userName = txtUserName.getText();
         String password = txtPassword.getText();
 
-        boolean isValidate = adminBo.RegisterAdmin(userName, password);
-        if (isValidate) {
-           new Alert(Alert.AlertType.CONFIRMATION , "Register Successfully").showAndWait();
-           navigate();
-           clearFields();
-        }else{
-            new Alert(Alert.AlertType.ERROR , "Try Again").show();
+        boolean isValid = validateUser(userName, password);
+        if (isValid) {
+            boolean isValidate = adminBo.RegisterAdmin(userName, password);
+            if (isValidate) {
+                new Alert(Alert.AlertType.CONFIRMATION , "Register Successfully").showAndWait();
+                navigate();
+                clearFields();
+            }else{
+                new Alert(Alert.AlertType.ERROR , "Try Again").show();
+            }
+
         }
     }
     private void navigate(){
@@ -54,5 +59,18 @@ public class RegisterFormController {
     private void clearFields() {
         txtPassword.setText("");
         txtUserName.setText("");
+    }
+    private boolean validateUser(String name, String password) {
+        boolean ValidateName = Pattern.matches("[a-zA-Z]{3,}", name);
+        if (!ValidateName) {
+            new Alert(Alert.AlertType.ERROR, "Invalid Name").show();
+            return false;
+        }
+        boolean ValidatePassword = Pattern.matches("[a-zA-Z0-9]{3,}", password);
+        if (!ValidatePassword) {
+            new Alert(Alert.AlertType.ERROR, "Invalid Password").show();
+            return false;
+        }
+        return true;
     }
 }

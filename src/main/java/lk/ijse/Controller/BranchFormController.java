@@ -20,6 +20,7 @@ import lk.ijse.Dto.Tm.BranchTm;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
 public class BranchFormController implements Initializable {
     @FXML
@@ -111,13 +112,16 @@ public class BranchFormController implements Initializable {
         int contact = Integer.parseInt(txtBranchContact.getText());
         String status = Status;
 
-        boolean isAdd = branchBo.AddBranch(new BranchDto(id, name, address, contact, status));
-        if (isAdd){
-            new Alert(Alert.AlertType.CONFIRMATION, "Branch Added Successfully !!").show();
-            refreshTable();
-            clearField();
-        }else{
-            new Alert(Alert.AlertType.WARNING, "Something went wrong !!").show();
+        boolean isValidate = validateBranch( name, address, contact);
+        if (isValidate){
+            boolean isAdd = branchBo.AddBranch(new BranchDto(id, name, address, contact, status));
+            if (isAdd){
+                new Alert(Alert.AlertType.CONFIRMATION, "Branch Added Successfully !!").show();
+                refreshTable();
+                clearField();
+            }else{
+                new Alert(Alert.AlertType.WARNING, "Something went wrong !!").show();
+            }
         }
     }
 
@@ -128,14 +132,17 @@ public class BranchFormController implements Initializable {
         int contact = Integer.parseInt(txtBranchContact.getText());
         String status = Status;
 
-        boolean isUpdate = branchBo.UpdateBranch(new BranchDto(id,name,address,contact,status));
+        boolean isValidate = validateBranch( name, address, contact);
+        if (isValidate){
+            boolean isUpdate = branchBo.UpdateBranch(new BranchDto(id,name,address,contact,status));
 
-        if (isUpdate){
-            new Alert(Alert.AlertType.INFORMATION ,"Branch Updated!!").show();
-            refreshTable();
-            clearField();
-        }else {
-            new Alert(Alert.AlertType.ERROR, "Try Again !!").show();
+            if (isUpdate){
+                new Alert(Alert.AlertType.INFORMATION ,"Branch Updated!!").show();
+                refreshTable();
+                clearField();
+            }else {
+                new Alert(Alert.AlertType.ERROR, "Try Again !!").show();
+            }
         }
     }
 
@@ -194,5 +201,23 @@ public class BranchFormController implements Initializable {
         obList.clear();
         setBranchId();
         loadAllBranch();
+    }
+    private boolean validateBranch(String name,String address,int contact){
+        boolean isValidateName = Pattern.matches("[A-Za-z]+",name);
+        if (!isValidateName){
+            new Alert(Alert.AlertType.ERROR,"Invalid Branch Name !!").show();
+            return false;
+        }
+        boolean isValidateAddress = Pattern.matches("[A-Za-z]+",address);
+        if (!isValidateAddress){
+            new Alert(Alert.AlertType.ERROR,"Invalid Branch Address !!").show();
+            return false;
+        }
+        boolean isValidateContact = Pattern.matches("[0-9]{9,}",String.valueOf(contact));
+        if (!isValidateContact){
+            new Alert(Alert.AlertType.ERROR,"Invalid Branch Contact !!").show();
+            return false;
+        }
+        return true;
     }
 }
