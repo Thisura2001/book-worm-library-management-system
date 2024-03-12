@@ -138,6 +138,7 @@ public class BooksDetailsFormController implements Initializable {
                 Boolean isDelete = bookDetailsBo.deleteDetails(bookDetailTm.getId());
             if (isDelete) {
                 refreshTable();
+                refreshBookTable();
                 new Alert(Alert.AlertType.CONFIRMATION,"Delete SuccessFully !!").show();
             }else {
                 new Alert(Alert.AlertType.ERROR,"Try Again").show();
@@ -162,6 +163,7 @@ public class BooksDetailsFormController implements Initializable {
                 @Override
                 public void handle(WindowEvent event) {
                     refreshTable();
+                    refreshBookTable();
                 }
             });
         }catch (Exception e){
@@ -189,5 +191,9 @@ public class BooksDetailsFormController implements Initializable {
     private void refreshTable() {
         obDetails.clear();
         getAllBookDetails();
+    }
+    private void refreshBookTable() {
+        obList.clear();
+        loadBooks();
     }
 }
