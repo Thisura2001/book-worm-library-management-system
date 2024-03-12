@@ -192,6 +192,7 @@ public class BranchFormController implements Initializable {
     }
     private void refreshTable() {
         obList.clear();
+        setBranchId();
         loadAllBranch();
     }
 }

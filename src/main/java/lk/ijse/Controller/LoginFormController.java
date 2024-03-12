@@ -63,7 +63,6 @@ public class LoginFormController {
             boolean isValid = loginBo.validUser(adminDto);
 
             if (isValid) {
-                new Alert(Alert.AlertType.INFORMATION,"WelCome :)").showAndWait();
               LoadDashBoard();
             }else {
 

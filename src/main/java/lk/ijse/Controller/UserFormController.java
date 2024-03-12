@@ -191,6 +191,7 @@ public class UserFormController implements Initializable {
     private void refreshTable(){
         obList.clear();
         loadAllUsers();
+        setUserId();
     }
 
     public void rbBtnMaleOnAction(ActionEvent actionEvent) {

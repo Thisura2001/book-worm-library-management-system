@@ -90,8 +90,9 @@ public class UserDaoImpl implements UserDao {
     public List<User> getAllUnReturnedUsers() {
         Session session = FactoryConfiguration.getFactoryConfiguration().getSession();
         Transaction transaction = session.beginTransaction();
+//        SELECT DISTINCT * FROM student s JOIN reservation r on s.student_id = r.student_student_id WHERE r.status='un-paid'
+        NativeQuery nativeQuery = session.createNativeQuery("SELECT distinct * FROM User JOIN BookDetails ON User.id = BookDetails.user_id WHERE BookDetails.status = 'UnReturned';");
 
-        NativeQuery nativeQuery = session.createNativeQuery("SELECT DISTINCT * FROM User u JOIN BookDetalis b on u.id= b.id WHERE r.status='unReturend'");
         nativeQuery.addEntity(User.class);
         List<User> users = nativeQuery.list();
 

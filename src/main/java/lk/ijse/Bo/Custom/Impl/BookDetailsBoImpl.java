@@ -6,7 +6,9 @@ import lk.ijse.Dao.DaoFactory;
 import lk.ijse.Dto.BookDetailsDto;
 import lk.ijse.Dto.BookDto;
 import lk.ijse.Dto.UserDto;
+import lk.ijse.Entity.Book;
 import lk.ijse.Entity.BookDetails;
+import lk.ijse.Entity.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,14 +17,17 @@ public class BookDetailsBoImpl implements BookDetailsBo {
     BookDetailsDao bookDetailsDao = (BookDetailsDao) DaoFactory.getInstance().getDAO(DaoFactory.DAOTypes.BookDetails);
     @Override
     public List<BookDetailsDto> getAllBookDetails() {
-        ArrayList<BookDetailsDto> bookDetailsDtos = new ArrayList<>();
+
         List<BookDetails> bookDetails = bookDetailsDao.getAll();
+        ArrayList<BookDetailsDto> bookDetailsDtos = new ArrayList<>();
+
         for (BookDetails bookDetail : bookDetails) {
 
             BookDetailsDto bookDetailsDto = new BookDetailsDto();
             bookDetailsDto.setId(bookDetail.getId());
             bookDetailsDto.setDate(bookDetail.getDate());
             bookDetailsDto.setStatus(bookDetail.getStatus());
+
 
 
             UserDto userDto = new UserDto();
@@ -40,12 +45,39 @@ public class BookDetailsBoImpl implements BookDetailsBo {
             bookDetailsDto.setBookDto(bookDto);
 
             bookDetailsDtos.add(bookDetailsDto);
+
         }
         return bookDetailsDtos;
     }
 
     @Override
     public String generateNewTranceactionID() {
-        return bookDetailsDao.generateNewTranceactionID();
+        return bookDetailsDao.generateNewId();
+    }
+
+    @Override
+    public Boolean addBookDetails(BookDetailsDto bookDetailsDto) {
+
+        BookDetails bookDetails = new BookDetails();
+        bookDetails.setId(bookDetailsDto.getId());
+
+        Book book = new Book();
+        book.setId(bookDetailsDto.getBookDto().getId());
+        book.setTitle(bookDetailsDto.getBookDto().getTitle());
+        book.setAuthor(bookDetailsDto.getBookDto().getAuthor());
+        book.setAvailability(bookDetailsDto.getBookDto().getAvailability());
+        bookDetails.setBook(book);
+
+        bookDetails.setStatus(bookDetailsDto.getStatus());
+        bookDetails.setDate(bookDetailsDto.getDate());
+
+        User user = new User();
+        user.setId(bookDetailsDto.getUserDto().getId());
+        user.setName(bookDetailsDto.getUserDto().getName());
+        user.setAddress(bookDetailsDto.getUserDto().getAddress());
+        user.setContact(bookDetailsDto.getUserDto().getContact());
+        bookDetails.setUser(user);
+
+        return bookDetailsDao.save(bookDetails);
     }
 }

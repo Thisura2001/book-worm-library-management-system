@@ -171,6 +171,7 @@ public class BookFormController implements Initializable {
     private void refreshTable() {
         obList.clear();
         getAll();
+        setBookId();
     }
     private void clearField(){
         txtBookId.clear();

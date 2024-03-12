@@ -9,11 +9,29 @@ import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BookDetailsDaoImpl implements BookDetailsDao {
     @Override
-    public List<BookDetails> getAll() {
+    public boolean save(BookDetails entity) {
+        Session session = FactoryConfiguration.getFactoryConfiguration().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        session.save(entity);
+
+        transaction.commit();
+        session.close();
+        return true;
+    }
+
+    @Override
+    public boolean update(BookDetails book) {
+        return false;
+    }
+
+    @Override
+    public ArrayList<BookDetails> getAll() {
         Session session = FactoryConfiguration.getFactoryConfiguration().getSession();
         Transaction transaction = session.beginTransaction();
 
@@ -24,11 +42,11 @@ public class BookDetailsDaoImpl implements BookDetailsDao {
 
         transaction.commit();
         session.close();
-        return bookDetails;
+        return (ArrayList<BookDetails>) bookDetails;
     }
 
     @Override
-    public String generateNewTranceactionID() {
+    public String generateNewId() {
         Session session = FactoryConfiguration.getFactoryConfiguration().getSession();
         Transaction transaction = session.beginTransaction();
 
@@ -40,5 +58,15 @@ public class BookDetailsDaoImpl implements BookDetailsDao {
         session.close();
 
         return (results.size() == 0) ? null : (String) results.get(0);
+    }
+
+    @Override
+    public boolean Delete(String id) {
+        return false;
+    }
+
+    @Override
+    public boolean validateAdmin(BookDetails admin) {
+        return false;
     }
 }

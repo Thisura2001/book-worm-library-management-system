@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
@@ -13,6 +14,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import lk.ijse.Bo.BoFactory;
 import lk.ijse.Bo.Custom.BookBo;
 import lk.ijse.Bo.Custom.BookDetailsBo;
@@ -23,7 +25,6 @@ import lk.ijse.Dto.Tm.BookTm;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -138,13 +139,18 @@ public class BooksDetailsFormController implements Initializable {
 
     @FXML
     void btnGetNewBooksOnAction(ActionEvent event) throws IOException {
-        Stage stage = new Stage();
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/getNewBooks.fxml"));
-        Scene scene = new Scene(anchorPane);
-        stage.setScene(scene);
-        stage.setResizable(false);
-        stage.centerOnScreen();
-        stage.show();
+        try {
+            Stage stage = new Stage();
+            AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/getNewBooks.fxml"));
+            Scene scene = new Scene(anchorPane);
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.centerOnScreen();
+            stage.show();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @FXML

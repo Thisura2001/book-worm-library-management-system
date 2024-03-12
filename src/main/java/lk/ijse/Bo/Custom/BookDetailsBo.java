@@ -9,4 +9,6 @@ public interface BookDetailsBo extends SuperBo {
     List<BookDetailsDto> getAllBookDetails();
 
     String generateNewTranceactionID();
+
+    Boolean addBookDetails(BookDetailsDto bookDetailsDto);
 }

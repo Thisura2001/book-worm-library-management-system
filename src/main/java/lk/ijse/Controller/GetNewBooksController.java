@@ -7,17 +7,21 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import lk.ijse.Bo.BoFactory;
 import lk.ijse.Bo.Custom.BookBo;
 import lk.ijse.Bo.Custom.BookDetailsBo;
 import lk.ijse.Bo.Custom.UserBo;
+import lk.ijse.Dto.BookDetailsDto;
 import lk.ijse.Dto.BookDto;
 import lk.ijse.Dto.UserDto;
 
 import java.net.URL;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -92,14 +96,35 @@ public class GetNewBooksController implements Initializable {
             String[] split = reservationID.split("[T][R][S]");
             int lastDigits = Integer.parseInt(split[1]);
             lastDigits++;
-            String newID = String.format("RI%06d", lastDigits);
+            String newID = String.format("TRS%06d", lastDigits);
             txttrId.setText(newID);
         }
     }
 
     @FXML
     void btnGetOnAction(ActionEvent event) {
+        SaveBookDetails("UnReturned");
+    }
+    private void SaveBookDetails(String status) {
 
+        BookDetailsDto bookDetailsDto = new BookDetailsDto();
+        bookDetailsDto.setId(txttrId.getText());
+        bookDetailsDto.setDate(Date.valueOf(datepicker.getValue()));
+        bookDetailsDto.setStatus(status);
+
+        BookDto bookDto = bookBo.searchBook(String.valueOf(cmbBook.getValue()));
+        bookDto.setAvailability(bookDto.getAvailability()-1);
+        bookDetailsDto.setBookDto(bookDto);
+
+        UserDto userDto = userBo.searchUser(String.valueOf(cmbUser.getValue()));
+        bookDetailsDto.setUserDto(userDto);
+
+        Boolean isAdded = bookDetailsBo.addBookDetails(bookDetailsDto);
+        if (isAdded){
+            new Alert(Alert.AlertType.INFORMATION, "Added!").showAndWait();
+        }else {
+            new Alert(Alert.AlertType.ERROR, "Try Again!").showAndWait();
+        }
     }
 
     @FXML
