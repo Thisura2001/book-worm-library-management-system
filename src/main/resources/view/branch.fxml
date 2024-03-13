@@ -11,7 +11,7 @@
 
 <AnchorPane fx:id="rootBranch" prefHeight="706.0" prefWidth="1170.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Controller.BranchFormController">
    <children>
-      <Label layoutX="33.0" layoutY="29.0" text="Manage Branches">
+      <Label layoutX="33.0" layoutY="29.0" text="Manage Branches" textFill="#788f2f">
          <font>
             <Font name="System Bold" size="48.0" />
          </font>
@@ -50,10 +50,22 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtBranchId" layoutX="166.0" layoutY="453.0" prefHeight="26.0" prefWidth="302.0" />
-      <JFXTextField fx:id="txtBranchName" layoutX="166.0" layoutY="539.0" prefHeight="26.0" prefWidth="302.0" />
-      <JFXTextField fx:id="txtBranchAddress" layoutX="166.0" layoutY="629.0" prefHeight="26.0" prefWidth="302.0" />
-      <JFXTextField fx:id="txtBranchContact" layoutX="633.0" layoutY="453.0" prefHeight="26.0" prefWidth="243.0" />
+      <JFXTextField fx:id="txtBranchId" layoutX="166.0" layoutY="453.0" prefHeight="26.0" prefWidth="302.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="txtBranchName" layoutX="166.0" layoutY="539.0" prefHeight="26.0" prefWidth="302.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="txtBranchAddress" layoutX="166.0" layoutY="629.0" prefHeight="26.0" prefWidth="302.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="txtBranchContact" layoutX="633.0" layoutY="453.0" prefHeight="26.0" prefWidth="243.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></JFXTextField>
       <RadioButton fx:id="rdbtnOpen" layoutX="633.0" layoutY="544.0" mnemonicParsing="false" onAction="#rdbtnOpenOnAction" text="Open" />
       <RadioButton fx:id="rdBtnClose" layoutX="633.0" layoutY="576.0" mnemonicParsing="false" onAction="#rdBtnCloseOnAction" text="Close" />
       <JFXButton buttonType="RAISED" layoutX="970.0" layoutY="436.0" onAction="#btnAddOnAction" prefHeight="60.0" prefWidth="144.0" style="-fx-background-color: #9b59b6; -fx-background-radius: 50;" text="Add">

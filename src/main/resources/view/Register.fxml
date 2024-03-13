@@ -18,19 +18,28 @@
       </ImageView>
       <AnchorPane layoutX="50.0" layoutY="57.0" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #ffffff;">
          <children>
-            <TextField fx:id="txtUserName" layoutX="48.0" layoutY="154.0" prefHeight="50.0" prefWidth="304.0" promptText="Enter Your UserName" />
+            <TextField fx:id="txtUserName" layoutX="48.0" layoutY="154.0" prefHeight="50.0" prefWidth="304.0" promptText="Enter Your UserName">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></TextField>
             <JFXButton buttonType="RAISED" layoutX="84.0" layoutY="483.0" onAction="#btnRegisterOnAction" prefHeight="54.0" prefWidth="252.0" style="-fx-background-color: #1e90ff; -fx-background-radius: 50;" text="Register">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </JFXButton>
-            <Label layoutX="33.0" layoutY="37.0" text="Fill This For Register">
+            <Label layoutX="33.0" layoutY="37.0" text="Fill This For Register" textFill="#716d28">
                <font>
                   <Font name="System Bold Italic" size="36.0" />
                </font>
             </Label>
-            <PasswordField fx:id="txtPassword" layoutX="51.0" layoutY="267.0" prefHeight="50.0" prefWidth="304.0" />
-            <PasswordField layoutX="48.0" layoutY="381.0" prefHeight="50.0" prefWidth="304.0" />
+            <PasswordField fx:id="txtPassword" layoutX="51.0" layoutY="267.0" prefHeight="50.0" prefWidth="304.0" promptText="Enter Your Password">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></PasswordField>
+            <PasswordField layoutX="48.0" layoutY="381.0" prefHeight="50.0" prefWidth="304.0" promptText="Re-Enter Password">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></PasswordField>
             <Label layoutX="51.0" layoutY="126.0" text="UserName">
                <font>
                   <Font size="18.0" />

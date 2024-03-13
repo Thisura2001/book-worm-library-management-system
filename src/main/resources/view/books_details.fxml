@@ -18,9 +18,9 @@
             <TableColumn fx:id="colStatus" prefWidth="208.00006103515625" text="status" />
         </columns>
       </TableView>
-      <Label layoutX="47.0" layoutY="31.0" text="Manage TranceActions">
+      <Label layoutX="47.0" layoutY="31.0" text="Manage TranceActions" textFill="#0c7b76">
          <font>
-            <Font name="System Bold" size="36.0" />
+            <Font name="System Bold" size="48.0" />
          </font>
       </Label>
       <JFXButton fx:id="btngetNewBooks" buttonType="RAISED" layoutX="998.0" layoutY="72.0" onAction="#btnGetNewBooksOnAction" prefHeight="47.0" prefWidth="120.0" style="-fx-background-color: #4cd137; -fx-background-radius: 50;" text="Get New Books">

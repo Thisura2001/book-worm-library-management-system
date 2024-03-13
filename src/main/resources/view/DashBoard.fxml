@@ -26,9 +26,14 @@
                   <Font name="System Bold Italic" size="96.0" />
                </font>
             </Label>
-            <ImageView fitHeight="320.0" fitWidth="529.0" layoutX="340.0" layoutY="318.0">
+            <ImageView fitHeight="320.0" fitWidth="529.0" layoutX="340.0" layoutY="318.0" opacity="0.98">
                <image>
                   <Image url="@../images/giphy.gif" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="706.0" fitWidth="1138.0" layoutX="31.0" layoutY="1.0" opacity="0.1">
+               <image>
+                  <Image url="@../images/sketches-books-open-closed-textbooks-dictionary-novels-with-blank-covers-vector-doodle-set-literature-icons-library-school-store-isolated-white-background_107791-9509.jpg" />
                </image>
             </ImageView>
          </children>

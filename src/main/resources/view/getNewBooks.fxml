@@ -45,14 +45,20 @@
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="txttrId" layoutX="229.0" layoutY="146.0" prefHeight="35.0" prefWidth="178.0" style="-fx-background-color: #74b9ff;" />
+            <JFXTextField fx:id="txttrId" layoutX="229.0" layoutY="146.0" prefHeight="35.0" prefWidth="178.0" style="-fx-background-color: #74b9ff;">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></JFXTextField>
             <JFXComboBox fx:id="cmbUser" layoutX="150.0" layoutY="239.0" onAction="#cmbUserOnAction" prefHeight="26.0" prefWidth="268.0" style="-fx-background-color: #74b9ff;" />
             <JFXComboBox fx:id="cmbBook" layoutX="150.0" layoutY="324.0" onAction="#cmbBookOnAction" prefHeight="26.0" prefWidth="268.0" style="-fx-background-color: #74b9ff;" />
             <DatePicker fx:id="datepicker" layoutX="23.0" layoutY="533.0" onAction="#datepickerOnAction" prefHeight="50.0" prefWidth="364.0" style="-fx-background-color: #74b9ff;" />
-            <TextField fx:id="txtAvailability" layoutX="193.0" layoutY="398.0" prefHeight="50.0" prefWidth="72.0" style="-fx-background-color: #74b9ff;" />
-            <Label layoutX="128.0" layoutY="29.0" text="Tranceaction" textFill="#8e8a11">
+            <TextField fx:id="txtAvailability" layoutX="193.0" layoutY="398.0" prefHeight="50.0" prefWidth="72.0" style="-fx-background-color: #74b9ff;">
                <font>
-                  <Font name="System Bold" size="36.0" />
+                  <Font name="System Bold" size="14.0" />
+               </font></TextField>
+            <Label layoutX="83.0" layoutY="14.0" text="Tranceaction" textFill="#8e8a11">
+               <font>
+                  <Font name="System Bold" size="48.0" />
                </font>
             </Label>
             <JFXButton buttonType="RAISED" layoutX="141.0" layoutY="605.0" onAction="#btnGetOnAction" prefHeight="37.0" prefWidth="191.0" style="-fx-background-color: #40739e; -fx-background-radius: 50;" text="Get" textFill="WHITE">

@@ -11,9 +11,9 @@
 
 <AnchorPane fx:id="rootUser" prefHeight="706.0" prefWidth="1170.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.Controller.UserFormController">
    <children>
-      <Label layoutX="38.0" layoutY="40.0" prefHeight="54.0" prefWidth="344.0" text="Manage Users..">
+      <Label layoutX="38.0" layoutY="23.0" prefHeight="54.0" prefWidth="344.0" text="Manage Users.." textFill="#73155a">
          <font>
-            <Font name="System Bold" size="36.0" />
+            <Font name="System Bold" size="48.0" />
          </font>
       </Label>
       <TableView fx:id="tblUser" layoutX="38.0" layoutY="119.0" prefHeight="269.0" prefWidth="1094.0">
@@ -50,10 +50,22 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtUserId" layoutX="152.0" layoutY="472.0" prefHeight="26.0" prefWidth="241.0" />
-      <JFXTextField fx:id="txtUserName" layoutX="152.0" layoutY="540.0" prefHeight="26.0" prefWidth="241.0" />
-      <JFXTextField fx:id="txtUserAddress" layoutX="152.0" layoutY="616.0" prefHeight="26.0" prefWidth="241.0" />
-      <JFXTextField fx:id="txtUserContact" layoutX="585.0" layoutY="471.0" prefHeight="26.0" prefWidth="241.0" />
+      <JFXTextField fx:id="txtUserId" layoutX="152.0" layoutY="472.0" prefHeight="26.0" prefWidth="241.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="txtUserName" layoutX="152.0" layoutY="540.0" prefHeight="26.0" prefWidth="241.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="txtUserAddress" layoutX="152.0" layoutY="616.0" prefHeight="26.0" prefWidth="241.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="txtUserContact" layoutX="585.0" layoutY="471.0" prefHeight="26.0" prefWidth="241.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></JFXTextField>
       <RadioButton fx:id="rdbtnMail" layoutX="613.0" layoutY="580.0" mnemonicParsing="false" onAction="#rbBtnMaleOnAction" text="Male">
          <font>
             <Font size="14.0" />
